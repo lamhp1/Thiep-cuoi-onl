@@ -623,6 +623,9 @@ export function WeddingPage({
       <MoonLotusTemplate
         data={data}
         isDemo={!isOwnerMode}
+        onNavigateToAdmin={onNavigateToAdmin}
+        isOwnerMode={isOwnerMode}
+        showEnvelopeImmediately={showEnvelopeImmediately}
       />
     );
   }
@@ -640,6 +643,9 @@ export function WeddingPage({
       <LoveGameTemplate
         data={data}
         isDemo={!isOwnerMode}
+        onNavigateToAdmin={onNavigateToAdmin}
+        isOwnerMode={isOwnerMode}
+        showEnvelopeImmediately={showEnvelopeImmediately}
       />
     );
   }

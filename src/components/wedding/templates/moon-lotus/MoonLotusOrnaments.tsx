@@ -3,12 +3,20 @@ import React, { useState } from 'react';
 /**
  * Play a soothing, crystal moonlight chime using the Web Audio API
  */
+let sharedMoonAudioCtx: AudioContext | null = null;
+
 export function playMoonlightChime() {
   if (typeof window === 'undefined') return;
   try {
-    const AudioContextClass = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-    if (!AudioContextClass) return;
-    const ctx = new AudioContextClass();
+    if (!sharedMoonAudioCtx || sharedMoonAudioCtx.state === 'closed') {
+      const AudioContextClass = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+      if (!AudioContextClass) return;
+      sharedMoonAudioCtx = new AudioContextClass();
+    }
+    if (sharedMoonAudioCtx.state === 'suspended') {
+      sharedMoonAudioCtx.resume().catch(() => {});
+    }
+    const ctx = sharedMoonAudioCtx;
     const now = ctx.currentTime;
 
     // Celestial chime chord frequencies (Pentatonic E-major: E5, G#5, B5, E6, G#6)

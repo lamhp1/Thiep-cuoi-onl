@@ -978,11 +978,11 @@ export function CelestialRoyaleTemplate({
             </div>
           ) : (
             <form onSubmit={handleSubmitRSVP} className="space-y-6">
-              {guestInfo.guestName && (
+              {guestInfo.hasGuest && guestInfo.cleanName && (
                 <div className="p-3.5 rounded-2xl bg-[#E5C378]/15 border border-[#E5C378]/40 text-xs text-[#FAF6EE] flex items-center gap-2.5 shadow-sm">
                   <Sparkles className="w-4 h-4 text-[#E5C378] shrink-0 animate-pulse" />
                   <span>
-                    Xin chào <strong>{guestInfo.guestName}</strong>! Tên của bạn đã được điền sẵn trên thiệp ánh sao.
+                    Xin chào <strong>{guestInfo.cleanName}</strong>! Tên của bạn đã được điền sẵn trên thiệp ánh sao.
                   </span>
                 </div>
               )}

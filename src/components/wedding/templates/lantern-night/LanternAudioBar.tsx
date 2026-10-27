@@ -5,11 +5,19 @@ interface LanternAudioBarProps {
   musicUrl?: string;
 }
 
+let sharedLanternAudioCtx: AudioContext | null = null;
+
 export const playLanternWindChime = () => {
   try {
-    const AudioContextClass = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-    if (!AudioContextClass) return;
-    const audioCtx = new AudioContextClass();
+    if (!sharedLanternAudioCtx || sharedLanternAudioCtx.state === 'closed') {
+      const AudioContextClass = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+      if (!AudioContextClass) return;
+      sharedLanternAudioCtx = new AudioContextClass();
+    }
+    if (sharedLanternAudioCtx.state === 'suspended') {
+      sharedLanternAudioCtx.resume().catch(() => {});
+    }
+    const audioCtx = sharedLanternAudioCtx;
     const frequencies = [880, 1046.5, 1318.5, 1567.98, 1760]; // A5, C6, E6, G6, A6 pentatonic
     const now = audioCtx.currentTime;
 

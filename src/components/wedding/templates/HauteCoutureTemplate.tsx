@@ -1102,11 +1102,11 @@ export function HauteCoutureTemplate({
             </div>
           ) : (
             <form onSubmit={handleSubmitRSVP} className="space-y-6">
-              {guestInfo.guestName && (
+              {guestInfo.hasGuest && guestInfo.cleanName && (
                 <div className="p-3.5 rounded-2xl bg-[#C5A880]/15 border border-[#C5A880]/40 text-xs text-[#F3EFEA] flex items-center gap-2.5 shadow-sm">
                   <Sparkles className="w-4 h-4 text-[#C5A880] shrink-0 animate-pulse" />
                   <span>
-                    Xin chào <strong>{guestInfo.guestName}</strong>! Tên của bạn đã được điền sẵn trên thiệp mời.
+                    Xin chào <strong>{guestInfo.cleanName}</strong>! Tên của bạn đã được điền sẵn trên thiệp mời.
                   </span>
                 </div>
               )}

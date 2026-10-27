@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { WeddingData, GalleryPhoto } from '../../../types';
 import { FloatingMusicPlayer } from '../../ui/FloatingMusicPlayer';
 import { submitRSVP } from '../../../services/rsvpService';
+import { addWish } from '../../../services/wishesService';
 import {
   Menu,
   X,
@@ -71,8 +72,12 @@ export function PolaroidScrapbookTemplate({
     });
   };
 
-  const handleAddWish = async (_author: string, _content: string) => {
-    // Saved locally within PolaroidWishesSection state
+  const handleAddWish = async (author: string, content: string) => {
+    await addWish({
+      weddingId: data.id || 'demo-wedding',
+      authorName: author,
+      content,
+    });
   };
 
   const handleScrollToSection = (sectionId: string) => {

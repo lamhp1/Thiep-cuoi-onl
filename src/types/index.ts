@@ -62,6 +62,7 @@ export interface StoryMilestone {
   dateStr: string;
   title: string;
   description: string;
+  content?: string;
   image: string;
   location?: string;
   // Dual perspective fields for Groom (Anh) & Bride (Em / Cô dâu)

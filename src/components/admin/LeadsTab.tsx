@@ -157,7 +157,7 @@ export function LeadsTab({ onOpenWeddingEdit }: LeadsTabProps) {
 
       const targetLead = leads.find((l) => l.id === leadId);
       if (targetLead) {
-        updateWeddingPackage(targetLead.orderCode || targetLead.id, canonicalSlug, pkgNames[canonicalSlug]);
+        updateWeddingPackage(targetLead.id, canonicalSlug, pkgNames[canonicalSlug]);
       }
 
       setLeads((prev) =>

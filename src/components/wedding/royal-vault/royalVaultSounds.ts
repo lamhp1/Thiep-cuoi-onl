@@ -1,3 +1,22 @@
+let sharedVaultAudioCtx: AudioContext | null = null;
+
+function getVaultAudioContext(): AudioContext | null {
+  if (typeof window === 'undefined') return null;
+  try {
+    if (!sharedVaultAudioCtx || sharedVaultAudioCtx.state === 'closed') {
+      const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+      if (!AudioCtx) return null;
+      sharedVaultAudioCtx = new AudioCtx();
+    }
+    if (sharedVaultAudioCtx.state === 'suspended') {
+      sharedVaultAudioCtx.resume().catch(() => {});
+    }
+    return sharedVaultAudioCtx;
+  } catch {
+    return null;
+  }
+}
+
 /**
  * Web Audio API procedural sound synthesizer for The Royal Ring Vault
  * Zero external audio files, works offline, pure harmonic synthesis
@@ -6,8 +25,8 @@
 export function playVaultUnlockSound(): void {
   if (typeof window === 'undefined') return;
   try {
-    const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-    const ctx = new AudioCtx();
+    const ctx = getVaultAudioContext();
+    if (!ctx) return;
 
     // 1. Mechanical Gold Latch Click (crisp metallic snap)
     const now = ctx.currentTime;
@@ -50,8 +69,8 @@ export function playVaultUnlockSound(): void {
 export function playLaserSparkle(): void {
   if (typeof window === 'undefined') return;
   try {
-    const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-    const ctx = new AudioCtx();
+    const ctx = getVaultAudioContext();
+    if (!ctx) return;
     const now = ctx.currentTime;
 
     // Twinkling harmonic arpeggio for gold laser beam
@@ -79,8 +98,8 @@ export function playLaserSparkle(): void {
 export function playRingRotateSparkle(): void {
   if (typeof window === 'undefined') return;
   try {
-    const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-    const ctx = new AudioCtx();
+    const ctx = getVaultAudioContext();
+    if (!ctx) return;
     const now = ctx.currentTime;
 
     const osc = ctx.createOscillator();
@@ -106,8 +125,8 @@ export function playRingRotateSparkle(): void {
 export function playCrystalGlassClink(): void {
   if (typeof window === 'undefined') return;
   try {
-    const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-    const ctx = new AudioCtx();
+    const ctx = getVaultAudioContext();
+    if (!ctx) return;
     const now = ctx.currentTime;
 
     // Fundamental high glass chime D7 (2349 Hz)

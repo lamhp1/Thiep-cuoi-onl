@@ -335,8 +335,7 @@ export function BuyExtraAlbumSlotsModal({
               type="button"
               onClick={handleSubmitRequest}
               disabled={isProcessing || isSuccess}
-              style={{ marginRight: '100px' }}
-              className="mr-[100px] flex-1 sm:flex-none px-6 py-2.5 rounded-xl bg-linear-to-r from-[#D4AF37] to-[#B38F26] hover:from-[#B38F26] hover:to-[#D4AF37] text-white text-xs font-bold transition-all shadow-xs cursor-pointer flex items-center justify-center gap-2 disabled:opacity-50"
+              className="flex-1 sm:flex-none px-6 py-2.5 rounded-xl bg-linear-to-r from-[#D4AF37] to-[#B38F26] hover:from-[#B38F26] hover:to-[#D4AF37] text-white text-xs font-bold transition-all shadow-xs cursor-pointer flex items-center justify-center gap-2 disabled:opacity-50"
             >
               {isSuccess ? (
                 <>

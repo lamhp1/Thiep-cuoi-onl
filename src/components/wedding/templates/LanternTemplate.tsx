@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { WeddingData, RSVPGuest } from '../../../types';
+import { submitRSVP } from '../../../services/rsvpService';
+import { addWish } from '../../../services/wishesService';
 import { SideLanternColumns } from './lantern-night/SideLanternColumns';
 import { LanternFirefliesCanvas } from './lantern-night/LanternFirefliesCanvas';
 import { LanternNightOpening } from './lantern-night/LanternNightOpening';
@@ -56,6 +58,10 @@ export function LanternTemplate({
   }, []);
 
   const handleRSVPSubmit = async (rsvp: Omit<RSVPGuest, 'id' | 'createdAt'>) => {
+    await submitRSVP({
+      ...rsvp,
+      weddingId: data.id || 'demo-wedding',
+    });
     // If message was also entered in RSVP, append to local wishing wall
     if (rsvp.message && rsvp.message.trim()) {
       const newWish: LanternWishItem = {
@@ -69,6 +75,11 @@ export function LanternTemplate({
   };
 
   const handleAddWish = (wish: { author: string; content: string }) => {
+    addWish({
+      weddingId: data.id || 'demo-wedding',
+      authorName: wish.author,
+      content: wish.content,
+    }).catch(() => {});
     const newWish: LanternWishItem = {
       id: `wish-${Date.now()}`,
       author: wish.author,

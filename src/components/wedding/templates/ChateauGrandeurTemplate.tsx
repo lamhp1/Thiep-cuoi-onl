@@ -963,11 +963,11 @@ export function ChateauGrandeurTemplate({
             </div>
           ) : (
             <form onSubmit={handleSubmitRSVP} className="space-y-6">
-              {guestInfo.guestName && (
+              {guestInfo.hasGuest && guestInfo.cleanName && (
                 <div className="p-3.5 rounded-2xl bg-[#3E4F42]/10 border border-[#C9A84E]/50 text-xs text-[#1E2520] flex items-center gap-2.5 shadow-xs">
                   <Sparkles className="w-4 h-4 text-[#C9A84E] shrink-0" />
                   <span>
-                    Kính chào <strong>{guestInfo.guestName}</strong>! Thông tin của bạn đã được điền sẵn để xác nhận nhanh.
+                    Kính chào <strong>{guestInfo.cleanName}</strong>! Thông tin của bạn đã được điền sẵn để xác nhận nhanh.
                   </span>
                 </div>
               )}

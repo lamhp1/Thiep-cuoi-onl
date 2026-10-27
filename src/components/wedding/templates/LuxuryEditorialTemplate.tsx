@@ -1404,11 +1404,11 @@ export function LuxuryEditorialTemplate({
               </motion.div>
             ) : (
               <form onSubmit={handleSubmitRSVP} className="space-y-6">
-                {guestInfo.guestName && (
+                {guestInfo.hasGuest && guestInfo.cleanName && (
                   <div className="p-3.5 bg-neutral-900 text-[#FBF9F5] border border-[#C5A880]/50 text-xs flex items-center gap-2.5 shadow-sm">
                     <Sparkles className="w-4 h-4 text-[#C5A880] shrink-0" />
                     <span>
-                      Kính chào <strong>{guestInfo.guestName}</strong>! Thông tin khách mời đã được điền sẵn trên ấn phẩm thiệp cưới.
+                      Kính chào <strong>{guestInfo.cleanName}</strong>! Thông tin khách mời đã được điền sẵn trên ấn phẩm thiệp cưới.
                     </span>
                   </div>
                 )}

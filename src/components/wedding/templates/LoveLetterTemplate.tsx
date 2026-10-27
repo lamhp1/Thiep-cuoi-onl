@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { WeddingData } from '../../../types';
 import { FloatingMusicPlayer } from '../../ui/FloatingMusicPlayer';
 import { submitRSVP } from '../../../services/rsvpService';
+import { addWish } from '../../../services/wishesService';
 import { Menu, X, Settings, Heart, Mail, Feather } from 'lucide-react';
 import { PersonalizedWelcomeBanner } from '../common/PersonalizedWelcomeBanner';
 import {
@@ -309,7 +310,15 @@ export function LoveLetterTemplate({
         />
 
         {/* 9. Guestbook / Wishes */}
-        <LoveLetterGuestbookSection />
+        <LoveLetterGuestbookSection
+          onAddWish={(w) => {
+            addWish({
+              weddingId: data.id || 'demo-wedding',
+              authorName: w.name,
+              content: w.message,
+            }).catch(() => {});
+          }}
+        />
 
         {/* 10. Final Letter & Footer */}
         <LoveLetterFinalLetter

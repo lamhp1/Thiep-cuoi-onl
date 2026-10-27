@@ -30,7 +30,7 @@ service cloud.firestore {
     function isValidRSVP(data) {
       return data.weddingId is string && data.weddingId.size() <= 128 &&
              data.fullName is string && data.fullName.size() > 0 && data.fullName.size() <= 100 &&
-             data.phone is string && data.phone.size() > 0 && data.phone.size() <= 25 &&
+             (!('phone' in data) || (data.phone is string && data.phone.size() <= 30)) &&
              data.attending is bool &&
              data.guestsCount is number && data.guestsCount >= 0 && data.guestsCount <= 50;
     }
@@ -77,9 +77,11 @@ service cloud.firestore {
     // Leads collection (Customer consultation & orders inquiries)
     match /leads/{leadId} {
       allow get, list: if true;
-      allow create: if isValidId(leadId) &&
-                    incoming().phone is string && incoming().phone.size() > 0 && incoming().phone.size() <= 30 &&
-                    incoming().name is string && incoming().name.size() > 0 && incoming().name.size() <= 150;
+      allow create: if isValidId(leadId) && (
+                    (incoming().phone is string && incoming().phone.size() > 0 && incoming().phone.size() <= 30 &&
+                     incoming().name is string && incoming().name.size() > 0 && incoming().name.size() <= 150) ||
+                    incoming().updatedAt is string
+      );
       allow update, delete: if isValidId(leadId);
     }
 
@@ -124,7 +126,10 @@ service cloud.firestore {
       allow get, list: if true;
       allow create, update: if isValidId(weddingId) && (
         isValidWedding(incoming()) ||
-        request.resource.data.status is string
+        request.resource.data.status is string ||
+        request.resource.data.updatedAt is string ||
+        request.resource.data.liveAlbum is map ||
+        request.resource.data.packageId is string
       );
       allow delete: if isValidId(weddingId);
 

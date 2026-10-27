@@ -115,6 +115,10 @@ class WeddingAudioController {
       this.masterGain.gain.setValueAtTime(this._isMuted ? 0 : 0.18, this.audioCtx.currentTime);
       this.masterGain.connect(this.audioCtx.destination);
 
+      if (this.synthInterval) {
+        clearInterval(this.synthInterval);
+        this.synthInterval = null;
+      }
       this.isSynthesizing = true;
       this._isPlaying = true;
       this.notify();
@@ -223,11 +227,29 @@ export const weddingAudio = new WeddingAudioController();
 /**
  * Web Audio FX triggers for Cyberpunk / Interactive Template sound effects
  */
+let sharedSfxCtx: AudioContext | null = null;
+function getSharedSfxContext(): AudioContext | null {
+  if (typeof window === 'undefined') return null;
+  try {
+    if (!sharedSfxCtx || sharedSfxCtx.state === 'closed') {
+      const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+      if (!AudioCtx) return null;
+      sharedSfxCtx = new AudioCtx();
+    }
+    if (sharedSfxCtx.state === 'suspended') {
+      sharedSfxCtx.resume().catch(() => {});
+    }
+    return sharedSfxCtx;
+  } catch {
+    return null;
+  }
+}
+
 export function playCyberClick(): void {
   if (typeof window === 'undefined') return;
   try {
-    const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-    const ctx = new AudioCtx();
+    const ctx = getSharedSfxContext();
+    if (!ctx) return;
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
 
@@ -249,8 +271,8 @@ export function playCyberClick(): void {
 export function playCyberLaser(): void {
   if (typeof window === 'undefined') return;
   try {
-    const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-    const ctx = new AudioCtx();
+    const ctx = getSharedSfxContext();
+    if (!ctx) return;
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
 
@@ -272,8 +294,8 @@ export function playCyberLaser(): void {
 export function playCyberSuccess(): void {
   if (typeof window === 'undefined') return;
   try {
-    const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-    const ctx = new AudioCtx();
+    const ctx = getSharedSfxContext();
+    if (!ctx) return;
     const notes = [523.25, 659.25, 783.99, 1046.5]; // C5, E5, G5, C6
     notes.forEach((freq, idx) => {
       const osc = ctx.createOscillator();

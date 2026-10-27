@@ -32,7 +32,7 @@ import { FloatingMusicPlayer } from '../../ui/FloatingMusicPlayer';
 import { useToast } from '../../ui/Toast';
 import { SmartEventActions } from '../common/SmartEventActions';
 import { RoyalRingVaultOpening } from '../royal-vault/RoyalRingVaultOpening';
-import { UniversalQRZoomModal } from '../common/QRZoomModal';
+import { QRZoomModal } from '../common/QRZoomModal';
 import { RoyalGoldParticlesCanvas } from '../royal-vault/RoyalGoldParticlesCanvas';
 import { InteractiveRingExchangeWidget } from '../royal-vault/InteractiveRingExchangeWidget';
 import { VirtualChampagneToastWidget } from '../royal-vault/VirtualChampagneToastWidget';
@@ -222,22 +222,25 @@ export function RoyalRingVaultTemplate({
       {
         id: 's1',
         year: '2021',
+        dateStr: 'Mùa Thu 2021',
         title: 'Ánh Nhìn Đầu Tiên',
-        content: 'Một buổi chiều thu Hà Nội trong trẻo, giữa quán cà phê nhỏ, định mệnh đã cho chúng mình gặp nhau.',
+        description: 'Một buổi chiều thu Hà Nội trong trẻo, giữa quán cà phê nhỏ, định mệnh đã cho chúng mình gặp nhau.',
         image: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80',
       },
       {
         id: 's2',
         year: '2023',
+        dateStr: 'Mùa Hạ 2023',
         title: 'Chuyến Đi Của Tình Yêu',
-        content: 'Cùng nhau đặt chân đến những vùng đất mới, vượt qua thử thách và nhận ra đối phương là mảnh ghép hoàn hảo.',
+        description: 'Cùng nhau đặt chân đến những vùng đất mới, vượt qua thử thách và nhận ra đối phương là mảnh ghép hoàn hảo.',
         image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80',
       },
       {
         id: 's3',
         year: '2026',
+        dateStr: 'Mùa Đông 2026',
         title: 'Chiếc Nhẫn Cầu Hôn',
-        content: 'Dưới bầu trời đêm đầy sao lấp lánh, câu nói "Em đồng ý" đã mở ra chương đẹp nhất của cuộc đời hai đứa.',
+        description: 'Dưới bầu trời đêm đầy sao lấp lánh, câu nói "Em đồng ý" đã mở ra chương đẹp nhất của cuộc đời hai đứa.',
         image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=600&q=80',
       },
     ];
@@ -532,7 +535,7 @@ export function RoyalRingVaultTemplate({
                       Năm {milestone.year}
                     </span>
                     <h3 className="text-xl font-serif font-bold text-white mb-2">{milestone.title}</h3>
-                    <p className="text-xs sm:text-sm text-white/70 font-light leading-relaxed mb-4">{milestone.content}</p>
+                    <p className="text-xs sm:text-sm text-white/70 font-light leading-relaxed mb-4">{milestone.description || milestone.content}</p>
                     {milestone.image && (
                       <div className="rounded-2xl overflow-hidden aspect-[16/9] border border-white/10">
                         <img
@@ -844,12 +847,22 @@ export function RoyalRingVaultTemplate({
       )}
 
       {/* QR Zoom Modal */}
-      {expandedQr && (
-        <UniversalQRZoomModal
-          bank={expandedQr}
-          onClose={() => setExpandedQr(null)}
-        />
-      )}
+      <QRZoomModal
+        isOpen={!!expandedQr}
+        onClose={() => setExpandedQr(null)}
+        data={
+          expandedQr
+            ? {
+                qrUrl: expandedQr.qrCodeUrl,
+                title: 'Mã QR Mừng Cưới',
+                bankName: expandedQr.bankName,
+                accountNumber: expandedQr.accountNumber,
+                accountHolder: expandedQr.accountHolder,
+                note: expandedQr.note,
+              }
+            : null
+        }
+      />
 
       {/* Modal 3D Vault if User Reopens it */}
       {showVaultModal && (

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { WeddingData, CouplePerson, WeddingEvent, StoryMilestone, GalleryPhoto, WishMessage } from '../../../types';
 import { submitRSVP } from '../../../services/rsvpService';
+import { addWish } from '../../../services/wishesService';
 import { FairytaleVillageGateOpening } from './vietnamese-fairytale/FairytaleVillageGateOpening';
 import { FairytalePetalsFalling } from './vietnamese-fairytale/FairytalePetalsFalling';
 import { FairytaleAudioBar } from './vietnamese-fairytale/FairytaleAudioBar';
@@ -244,6 +245,13 @@ export function VietnameseFairytaleTemplate({
         <FairytaleLotusWishesSection
           wishes={(data as any).wishes || []}
           weddingId={data.id}
+          onAddWish={async (authorName, content) => {
+            await addWish({
+              weddingId: data.id || 'demo-wedding',
+              authorName,
+              content,
+            });
+          }}
         />
 
         {/* Final Chapter: Lễ Cưới Trọn Vẹn */}

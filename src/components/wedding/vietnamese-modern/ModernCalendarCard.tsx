@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Calendar, Clock, MapPin, CalendarPlus, Sparkles, Download } from 'lucide-react';
-import { calculateCountdown, createGoogleCalendarUrl } from '../../../lib/utils';
+import { calculateCountdown, createGoogleCalendarUrl, parseFlexibleDate } from '../../../lib/utils';
 import { MiniSongHy, MinimalistLotus } from './VietnameseModernOrnaments';
 
 interface ModernCalendarCardProps {
@@ -33,7 +33,7 @@ export function ModernCalendarCard({
   }, [weddingDateTime, weddingDateStr]);
 
   // Parse date
-  const dateObj = new Date(weddingDateStr || '2026-12-20');
+  const dateObj = parseFlexibleDate(weddingDateStr || '2026-12-20') || new Date(2026, 11, 20);
   const dayNum = dateObj.getDate() || 20;
   const monthNum = dateObj.getMonth() + 1 || 12;
   const yearNum = dateObj.getFullYear() || 2026;
@@ -64,8 +64,8 @@ export function ModernCalendarCard({
       `SUMMARY:Lễ Cưới ${groomName} & ${brideName}`,
       `DESCRIPTION:Trân trọng kính mời quý khách tham dự lễ thành hôn của ${groomName} và ${brideName}`,
       `LOCATION:${primaryLocation}, ${primaryAddress}`,
-      `DTSTART:${weddingDateStr.replace(/-/g, '')}T100000`,
-      `DTEND:${weddingDateStr.replace(/-/g, '')}T140000`,
+      `DTSTART:${yearNum}${String(monthNum).padStart(2, '0')}${String(dayNum).padStart(2, '0')}T100000`,
+      `DTEND:${yearNum}${String(monthNum).padStart(2, '0')}${String(dayNum).padStart(2, '0')}T140000`,
       'STATUS:CONFIRMED',
       'END:VEVENT',
       'END:VCALENDAR',

@@ -281,6 +281,8 @@ export async function submitWish(wish: Omit<WishMessage, 'id' | 'createdAt' | 'l
   return newWish;
 }
 
+export const addWish = submitWish;
+
 export async function toggleWishLike(weddingId: string, wishId: string): Promise<number> {
   let newLikes = 1;
   let targetWish: WishMessage | undefined;

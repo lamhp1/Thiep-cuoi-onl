@@ -9,6 +9,7 @@ export type LeadStatus =
 
 export interface Lead {
   id: string;
+  orderCode?: string;
   name: string;
   groomName: string;
   brideName: string;

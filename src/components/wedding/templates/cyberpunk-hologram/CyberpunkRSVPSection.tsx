@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { playCyberClick, playCyberSuccess } from '../../../../lib/audioSynth';
+import { submitRSVP } from '../../../../services/rsvpService';
 
 interface CyberpunkRSVPSectionProps {
   weddingId?: string;
@@ -28,11 +29,23 @@ export function CyberpunkRSVPSection({
     setIsSubmitting(true);
     playCyberClick();
 
-    setTimeout(() => {
+    try {
+      await submitRSVP({
+        weddingId: weddingId || 'demo-wedding',
+        fullName: fullName.trim(),
+        phone: phone.trim(),
+        attending: attending === 'YES',
+        guestsCount: attending === 'YES' ? guestCount : 0,
+        guestOf: guestSide === 'GROOM' ? 'groom' : 'bride',
+        message: note.trim(),
+      });
+    } catch (err) {
+      console.warn('Cyberpunk RSVP submit warning:', err);
+    } finally {
       setIsSubmitting(false);
       setIsSubmitted(true);
       playCyberSuccess();
-    }, 800);
+    }
   };
 
   return (

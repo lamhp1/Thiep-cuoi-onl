@@ -1,3 +1,4 @@
+import { parseFlexibleDate } from '../../../../lib/utils';
 import React, { useState, useEffect } from 'react';
 import { Heart, Calendar, Clock, MapPin, Sparkles } from 'lucide-react';
 import { WashiTape, Paperclip, Thumbtack, PressedFlower, HeartSticker } from './PolaroidScrapbookOrnaments';
@@ -33,7 +34,8 @@ export function PolaroidHeroSection({
   });
 
   useEffect(() => {
-    const target = weddingDateTime ? new Date(weddingDateTime).getTime() : new Date('2026-12-20T10:00:00').getTime();
+    const parsed = parseFlexibleDate(weddingDateTime || weddingDate, '10:00:00');
+    const target = parsed ? parsed.getTime() : new Date('2026-12-20T10:00:00').getTime();
 
     const updateCountdown = () => {
       const now = new Date().getTime();
@@ -54,7 +56,7 @@ export function PolaroidHeroSection({
     updateCountdown();
     const interval = setInterval(updateCountdown, 1000);
     return () => clearInterval(interval);
-  }, [weddingDateTime]);
+  }, [weddingDateTime, weddingDate]);
 
   return (
     <section id="hero" className="relative pt-12 sm:pt-16 pb-16 sm:pb-24 px-4 sm:px-6 max-w-5xl mx-auto text-center">

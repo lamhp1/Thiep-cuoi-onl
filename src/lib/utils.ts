@@ -2,17 +2,47 @@ export function cn(...classes: (string | boolean | undefined | null)[]): string 
   return classes.filter(Boolean).join(' ');
 }
 
+export function parseFlexibleDate(dateStr: string, defaultTime: string = '10:00:00'): Date | null {
+  if (!dateStr || typeof dateStr !== 'string') return null;
+  const trimmed = dateStr.trim();
+  if (!trimmed) return null;
+
+  // Handle ISO datetime e.g. 2026-12-20T10:00:00
+  if (trimmed.includes('T')) {
+    const d = new Date(trimmed);
+    if (!isNaN(d.getTime())) return d;
+  }
+
+  // Handle YYYY-MM-DD
+  const ymdMatch = trimmed.match(/^(\d{4})[-/.](\d{1,2})[-/.](\d{1,2})$/);
+  if (ymdMatch) {
+    const [, y, m, d] = ymdMatch;
+    const [hh = '10', mm = '00', ss = '00'] = defaultTime.split(':');
+    const parsed = new Date(Number(y), Number(m) - 1, Number(d), Number(hh), Number(mm), Number(ss));
+    if (!isNaN(parsed.getTime())) return parsed;
+  }
+
+  // Handle DD/MM/YYYY or DD.MM.YYYY or DD-MM-YYYY (including "20 • 12 • 2026")
+  const dmyMatch = trimmed.match(/^(\d{1,2})(?:\s*[-/.•]\s*)(\d{1,2})(?:\s*[-/.•]\s*)(\d{4})$/);
+  if (dmyMatch) {
+    const [, d, m, y] = dmyMatch;
+    const [hh = '10', mm = '00', ss = '00'] = defaultTime.split(':');
+    const parsed = new Date(Number(y), Number(m) - 1, Number(d), Number(hh), Number(mm), Number(ss));
+    if (!isNaN(parsed.getTime())) return parsed;
+  }
+
+  const fallback = new Date(trimmed);
+  return isNaN(fallback.getTime()) ? null : fallback;
+}
+
 export function formatVietnameseDate(dateStr: string): string {
   try {
-    const parts = dateStr.split('-');
-    if (parts.length === 3) {
-      const year = parts[0];
-      const month = parseInt(parts[1], 10);
-      const day = parseInt(parts[2], 10);
-      return `Ngày ${day} Tháng ${month}, ${year}`;
+    if (!dateStr) return '';
+    const d = parseFlexibleDate(dateStr);
+    if (d && !isNaN(d.getTime())) {
+      return `Ngày ${d.getDate()} Tháng ${d.getMonth() + 1}, ${d.getFullYear()}`;
     }
-    const d = new Date(dateStr);
-    return `Ngày ${d.getDate()} Tháng ${d.getMonth() + 1}, ${d.getFullYear()}`;
+    return dateStr;
   } catch {
     return dateStr;
   }
@@ -27,7 +57,8 @@ export interface CountdownResult {
 }
 
 export function calculateCountdown(targetDateIso: string): CountdownResult {
-  const target = new Date(targetDateIso).getTime();
+  const parsed = parseFlexibleDate(targetDateIso, '10:00:00');
+  const target = parsed ? parsed.getTime() : NaN;
   const now = new Date().getTime();
   const diff = target - now;
 
@@ -68,12 +99,30 @@ export async function copyToClipboard(text: string): Promise<boolean> {
 }
 
 export function createGoogleCalendarUrl(title: string, date: string, time: string, location: string, details: string): string {
-  // Format: 20261220T100000 / 20261220T130000
-  const cleanDate = date.replace(/[^0-9]/g, '');
-  const cleanTime = time.replace(/[^0-9]/g, '');
-  const startParam = `20261220T${cleanTime || '100000'}`;
-  const endParam = `20261220T140000`;
-  
+  const parsedDate = parseFlexibleDate(date, time || '10:00:00');
+  let ymd = '20261220';
+  if (parsedDate && !isNaN(parsedDate.getTime())) {
+    const y = parsedDate.getFullYear();
+    const m = String(parsedDate.getMonth() + 1).padStart(2, '0');
+    const d = String(parsedDate.getDate()).padStart(2, '0');
+    ymd = `${y}${m}${d}`;
+  } else {
+    const digits = (date || '').replace(/[^0-9]/g, '');
+    if (digits.length === 8) {
+      ymd = digits;
+    }
+  }
+
+  const timeDigits = (time || '10:00').replace(/[^0-9]/g, '');
+  const startH = timeDigits.length >= 2 ? parseInt(timeDigits.slice(0, 2), 10) : 10;
+  const startM = timeDigits.length >= 4 ? timeDigits.slice(2, 4) : '00';
+  const startS = timeDigits.length >= 6 ? timeDigits.slice(4, 6) : '00';
+  const safeStartH = isNaN(startH) ? 10 : Math.min(23, Math.max(0, startH));
+  const endH = Math.min(23, safeStartH + 3);
+
+  const startParam = `${ymd}T${String(safeStartH).padStart(2, '0')}${startM}${startS}`;
+  const endParam = `${ymd}T${String(endH).padStart(2, '0')}${startM}${startS}`;
+
   const params = new URLSearchParams({
     action: 'TEMPLATE',
     text: title,

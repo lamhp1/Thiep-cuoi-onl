@@ -1,3 +1,4 @@
+import { parseFlexibleDate } from '../../../../lib/utils';
 import React, { useState, useEffect } from 'react';
 import { Sparkles, Calendar, Clock, MapPin, Heart, ChevronDown } from 'lucide-react';
 import { DetailedMoon, ArtisticBloomingLotus, CelestialClouds } from './MoonLotusOrnaments';
@@ -32,7 +33,8 @@ export function MoonLotusHeroSection({
   });
 
   useEffect(() => {
-    const targetDate = new Date('2026-12-20T10:00:00+07:00').getTime();
+    const parsed = parseFlexibleDate(weddingDate, '10:00:00');
+    const targetDate = parsed ? parsed.getTime() : new Date('2026-12-20T10:00:00+07:00').getTime();
 
     const updateTimer = () => {
       const now = new Date().getTime();
@@ -53,7 +55,7 @@ export function MoonLotusHeroSection({
     updateTimer();
     const interval = setInterval(updateTimer, 1000);
     return () => clearInterval(interval);
-  }, []);
+  }, [weddingDate]);
 
   // Calculate moon top-sky position offset on scroll
   const moonTranslateY = Math.min(180, scrollProgress * 300);

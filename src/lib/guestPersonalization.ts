@@ -10,6 +10,7 @@ export interface GuestInfo {
   displayName: string;
   fullGreeting: string;
   rsvpPrefill: string;
+  guestName?: string;
 }
 
 /**
@@ -51,6 +52,7 @@ export function formatGuestGreeting(rawName: string): GuestInfo {
       hasGuest: false,
       rawName: '',
       cleanName: '',
+      guestName: '',
       displayName: 'Quý khách & Người thương',
       fullGreeting: 'Trân trọng kính mời: Quý khách & Người thương',
       rsvpPrefill: '',

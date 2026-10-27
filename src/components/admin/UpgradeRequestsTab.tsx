@@ -31,7 +31,7 @@ interface UpgradeRequestsTabProps {
   onRefreshCount?: () => void;
 }
 
-export function UpgradeRequestsTab({ onRefreshCount }: UpgradeRequestsTabProps = {}) {
+export function UpgradeRequestsTab({ onRefreshCount }: UpgradeRequestsTabProps) {
   const { showToast } = useToast();
   const [requests, setRequests] = useState<PackageUpgradeRequest[]>([]);
   const [isLoading, setIsLoading] = useState(true);

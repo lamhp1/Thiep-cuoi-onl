@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { WeddingData } from '../../../types';
+import { submitRSVP } from '../../../services/rsvpService';
 import { MoonLotusCanvas } from './moon-lotus/MoonLotusCanvas';
 import { LotusPetalsFalling } from './moon-lotus/MoonLotusOrnaments';
 import { MoonLotusOpening } from './moon-lotus/MoonLotusOpening';
@@ -20,10 +21,23 @@ import { Moon, Sparkles, Heart } from 'lucide-react';
 interface MoonLotusTemplateProps {
   data: WeddingData;
   isDemo?: boolean;
+  onNavigateToAdmin?: () => void;
+  isOwnerMode?: boolean;
+  showEnvelopeImmediately?: boolean;
 }
 
-export function MoonLotusTemplate({ data, isDemo = false }: MoonLotusTemplateProps) {
-  const [hasOpened, setHasOpened] = useState(false);
+export function MoonLotusTemplate({
+  data,
+  isDemo = false,
+  onNavigateToAdmin,
+  isOwnerMode = false,
+  showEnvelopeImmediately = true,
+}: MoonLotusTemplateProps) {
+  const [hasOpened, setHasOpened] = useState(!showEnvelopeImmediately);
+
+  useEffect(() => {
+    setHasOpened(!showEnvelopeImmediately);
+  }, [showEnvelopeImmediately]);
   const [scrollProgress, setScrollProgress] = useState(0);
 
   // Monitor scroll for interactive moon movement, cloud drifting, and blooming lotus
@@ -216,6 +230,17 @@ export function MoonLotusTemplate({ data, isDemo = false }: MoonLotusTemplatePro
         <MoonLotusRSVPSection
           groomName={groomName}
           brideName={brideName}
+          onRSVPSubmit={(rsvpForm) => {
+            submitRSVP({
+              weddingId: data.id || 'demo-wedding',
+              fullName: rsvpForm.name,
+              phone: rsvpForm.phone,
+              attending: rsvpForm.attendance !== 'no',
+              guestsCount: rsvpForm.attendance !== 'no' ? rsvpForm.guestCount : 0,
+              guestOf: 'both',
+              message: rsvpForm.wishes,
+            }).catch(() => {});
+          }}
         />
 
         {/* Section 9: Guest Wishes (Thả Hoa Sen Cầu Chúc Dưới Trăng) */}

@@ -1,3 +1,4 @@
+import { parseFlexibleDate } from '../../../../lib/utils';
 import React, { useState, useEffect } from 'react';
 import { SparklingStar, HoiAnDiamondLantern, HoiAnGlobeLantern, LotusNightIcon, VietnameseCloudOrnament } from './LanternNightOrnaments';
 import { Clock, ChevronDown, Sparkles } from 'lucide-react';
@@ -64,7 +65,8 @@ export function LanternHeroSection({
 
   useEffect(() => {
     // Parse target date or default to 2026-12-20 18:00
-    const target = new Date('2026-12-20T18:00:00').getTime();
+    const parsed = parseFlexibleDate(weddingDate, '18:00:00');
+    const target = parsed ? parsed.getTime() : new Date('2026-12-20T18:00:00').getTime();
 
     const calculate = () => {
       const now = new Date().getTime();
@@ -85,7 +87,7 @@ export function LanternHeroSection({
     calculate();
     const interval = setInterval(calculate, 1000);
     return () => clearInterval(interval);
-  }, []);
+  }, [weddingDate]);
 
   const heroLanternGlow = 0.5 + scrollProgress * 0.7;
 

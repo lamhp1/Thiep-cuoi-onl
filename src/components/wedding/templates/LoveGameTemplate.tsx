@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { WeddingData } from '../../../types';
 import { LoveGameOpening } from './love-game/LoveGameOpening';
 import { LoveGameHUD } from './love-game/LoveGameHUD';
@@ -21,10 +21,23 @@ import { playPointChime, playVictoryFanfare } from './love-game/loveGameSounds';
 interface LoveGameTemplateProps {
   data: WeddingData;
   isDemo?: boolean;
+  onNavigateToAdmin?: () => void;
+  isOwnerMode?: boolean;
+  showEnvelopeImmediately?: boolean;
 }
 
-export function LoveGameTemplate({ data, isDemo = false }: LoveGameTemplateProps) {
-  const [hasOpened, setHasOpened] = useState(false);
+export function LoveGameTemplate({
+  data,
+  isDemo = false,
+  onNavigateToAdmin,
+  isOwnerMode = false,
+  showEnvelopeImmediately = true,
+}: LoveGameTemplateProps) {
+  const [hasOpened, setHasOpened] = useState(!showEnvelopeImmediately);
+
+  useEffect(() => {
+    setHasOpened(!showEnvelopeImmediately);
+  }, [showEnvelopeImmediately]);
   const [lovePoints, setLovePoints] = useState(0);
   const [completedQuests, setCompletedQuests] = useState<Set<string>>(new Set());
   const [recentNotification, setRecentNotification] = useState<string | null>(null);
