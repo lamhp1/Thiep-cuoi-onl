@@ -1,0 +1,684 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: 'Lora', 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --font-charm: 'Charm', cursive, serif;
+  --font-charmonman: 'Charmonman', 'Charm', cursive;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Luxury Wedding Typography - 100% Vietnamese Diacritics Verified */
+.font-serif-title {
+  font-family: 'Playfair Display', 'Lora', Georgia, serif;
+}
+
+.font-serif {
+  font-family: 'Lora', 'Playfair Display', Georgia, serif;
+}
+
+.font-poetry {
+  font-family: 'Lora', 'EB Garamond', Georgia, serif;
+}
+
+.font-script {
+  font-family: 'Dancing Script', 'Charm', 'Charmonman', cursive;
+}
+
+.font-handwriting {
+  font-family: 'Dancing Script', 'Caveat', 'Charm', 'Charmonman', cursive;
+}
+
+.font-polaroid-handwriting {
+  font-family: 'Caveat', 'Dancing Script', cursive;
+}
+
+.font-polaroid-note {
+  font-family: 'Caveat', cursive;
+}
+
+.scrapbook-desk-bg {
+  background-color: #F8F3EA;
+  background-image: radial-gradient(#D5C9B5 0.85px, transparent 0.85px), radial-gradient(#D5C9B5 0.85px, #F8F3EA 0.85px);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 14px;
+}
+
+.scrapbook-grid-paper {
+  background-size: 20px 20px;
+  background-image: 
+    linear-gradient(to right, rgba(185, 160, 130, 0.18) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(185, 160, 130, 0.18) 1px, transparent 1px);
+}
+
+.font-body {
+  font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+}
+
+.font-display {
+  font-family: 'Playfair Display', 'Lora', Georgia, serif;
+}
+
+.font-royal {
+  font-family: 'Playfair Display', 'EB Garamond', 'Lora', Georgia, serif;
+}
+
+/* Traditional Vietnamese Royal Wedding Typography (Mềm Mại, Cổ Phong, 100% Không Lỗi Font) */
+.font-traditional-title {
+  font-family: 'Charm', 'Lora', 'EB Garamond', Georgia, serif;
+  letter-spacing: 0.015em;
+}
+
+.font-traditional-display {
+  font-family: 'Charmonman', 'Charm', cursive;
+}
+
+.font-traditional-poetry {
+  font-family: 'Lora', 'EB Garamond', Georgia, serif;
+}
+
+/* Scoped Overrides for Vietnamese Traditional & Imperial Cinematic Templates */
+.template-cinematic-vietnamese,
+.template-vietnamese-traditional {
+  font-family: 'Lora', 'EB Garamond', Georgia, serif;
+}
+
+.template-cinematic-vietnamese .font-serif-title,
+.template-vietnamese-traditional .font-serif-title {
+  font-family: 'Charm', 'Lora', 'EB Garamond', Georgia, serif;
+  letter-spacing: 0.015em;
+  font-weight: 700;
+}
+
+.template-cinematic-vietnamese .font-serif,
+.template-vietnamese-traditional .font-serif {
+  font-family: 'Lora', 'EB Garamond', Georgia, serif;
+}
+
+.template-cinematic-vietnamese .font-poetry,
+.template-vietnamese-traditional .font-poetry {
+  font-family: 'Lora', 'EB Garamond', Georgia, serif;
+}
+
+.template-cinematic-vietnamese .font-script,
+.template-vietnamese-traditional .font-script {
+  font-family: 'Charmonman', 'Charm', cursive;
+}
+
+/* Luxury wedding custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FDFBF7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B38F26;
+}
+
+/* Specific visible horizontal scrollbar for tabs */
+.tab-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #D4AF37 #EAE6DF;
+}
+
+.tab-scrollbar::-webkit-scrollbar {
+  height: 8px !important;
+  display: block !important;
+}
+
+.tab-scrollbar::-webkit-scrollbar-track {
+  background: #EAE6DF !important;
+  border-radius: 9999px;
+}
+
+.tab-scrollbar::-webkit-scrollbar-thumb {
+  background: #D4AF37 !important;
+  border-radius: 9999px;
+  border: 1.5px solid #EAE6DF;
+}
+
+.tab-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #B38F26 !important;
+}
+
+/* Glassmorphism luxury */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-panel-dark {
+  background: rgba(24, 23, 22, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Subtle gold border sheen */
+.border-gold {
+  border-color: rgba(212, 175, 55, 0.35);
+}
+
+.border-gold-strong {
+  border-color: rgba(212, 175, 55, 0.8);
+}
+
+.shadow-gold {
+  box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.25);
+}
+
+/* Futuristic & Cyber Romance Typography & Styling (100% Native Vietnamese Support) */
+.font-futuristic {
+  font-family: 'Chakra Petch', 'Montserrat', sans-serif;
+  letter-spacing: 0.03em;
+}
+
+.font-cyber {
+  font-family: 'Chakra Petch', monospace, sans-serif;
+  letter-spacing: 0.04em;
+}
+
+.shadow-neon-cyan {
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.35);
+}
+
+.shadow-neon-purple {
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.35);
+}
+
+.shadow-neon-pink {
+  box-shadow: 0 0 25px rgba(255, 46, 147, 0.35);
+}
+
+.cyber-grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(0, 240, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 240, 255, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.cyber-scanline-overlay {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.03),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.03)
+  );
+  background-size: 100% 3px, 6px 100%;
+}
+
+.cyber-clip-corner {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 16px) 0,
+    100% 16px,
+    100% 100%,
+    16px 100%,
+    0 calc(100% - 16px)
+  );
+}
+
+.cyber-clip-tag {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% 100%,
+    0 100%
+  );
+}
+
+@keyframes laserSweep {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(300%);
+    opacity: 0;
+  }
+}
+
+.animate-laser-sweep {
+  animation: laserSweep 4s ease-in-out infinite;
+}
+
+@keyframes holographicPulse {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.3), inset 0 0 15px rgba(0, 240, 255, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 45px rgba(168, 85, 247, 0.45), inset 0 0 25px rgba(255, 46, 147, 0.25);
+  }
+}
+
+.hologram-pulse {
+  animation: holographicPulse 4s ease-in-out infinite;
+}
+
+/* Holographic Glitch Keyframes & Hover Jitter */
+@keyframes holoGlitch {
+  0% {
+    text-shadow: 2px 0 #00F0FF, -2px 0 #FF007A;
+    transform: translate(0, 0);
+  }
+  20% {
+    text-shadow: -2px 0 #00F0FF, 2px 0 #FF007A;
+    transform: translate(-2px, 1px);
+  }
+  40% {
+    text-shadow: 2px 0 #FF007A, -2px 0 #00F0FF;
+    transform: translate(1px, -1px);
+  }
+  60% {
+    text-shadow: -1px 0 #00F0FF, 1px 0 #FF007A;
+    transform: translate(-1px, 0);
+  }
+  80% {
+    text-shadow: 1px 0 #FF007A, -1px 0 #00F0FF;
+    transform: translate(2px, -1px);
+  }
+  100% {
+    text-shadow: 2px 0 #00F0FF, -2px 0 #FF007A;
+    transform: translate(0, 0);
+  }
+}
+
+.holo-glitch-active {
+  animation: holoGlitch 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  text-shadow: 0 0 15px rgba(0, 240, 255, 0.8), 2px 0 #00F0FF, -2px 0 #FF007A;
+}
+
+.holo-glitch {
+  display: inline-block;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.holo-glitch:hover,
+.holo-glitch:active,
+.group:hover .holo-glitch {
+  animation: holoGlitch 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  text-shadow: 0 0 15px rgba(0, 240, 255, 0.9), 2px 0 #00F0FF, -2px 0 #FF007A;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 38s linear infinite;
+}
+
+/* Vietnamese Night Wedding — Lantern Sway & Ambient Glow Animations */
+@keyframes lanternSwayLeft {
+  0%, 100% {
+    transform: rotate(-3.5deg);
+  }
+  50% {
+    transform: rotate(3.5deg);
+  }
+}
+
+@keyframes lanternSwayRight {
+  0%, 100% {
+    transform: rotate(3.5deg);
+  }
+  50% {
+    transform: rotate(-3.5deg);
+  }
+}
+
+@keyframes lanternTasselSway {
+  0%, 100% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(6deg);
+  }
+}
+
+@keyframes lanternCorePulse {
+  0%, 100% {
+    opacity: 0.9;
+    filter: drop-shadow(0 0 16px rgba(245, 158, 11, 0.7));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 28px rgba(245, 158, 11, 0.95)) drop-shadow(0 0 45px rgba(234, 88, 12, 0.6));
+  }
+}
+
+@keyframes warmAuraExpand {
+  0%, 100% {
+    transform: scale(0.98);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 0.85;
+  }
+}
+
+@keyframes starTwinkleGlow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(0.92);
+    filter: drop-shadow(0 0 4px rgba(253, 224, 71, 0.6));
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 14px rgba(253, 224, 71, 1)) drop-shadow(0 0 25px rgba(245, 158, 11, 0.8));
+  }
+}
+
+.animate-lantern-sway-left {
+  transform-origin: 50% 0%;
+  animation: lanternSwayLeft 4.5s ease-in-out infinite;
+}
+
+.animate-lantern-sway-right {
+  transform-origin: 50% 0%;
+  animation: lanternSwayRight 5s ease-in-out infinite;
+}
+
+.animate-lantern-tassel {
+  transform-origin: 50% 0%;
+  animation: lanternTasselSway 3.2s ease-in-out infinite;
+}
+
+.animate-lantern-core {
+  animation: lanternCorePulse 3s ease-in-out infinite;
+}
+
+.animate-warm-aura {
+  animation: warmAuraExpand 4s ease-in-out infinite;
+}
+
+.animate-star-twinkle {
+  animation: starTwinkleGlow 2.5s ease-in-out infinite;
+}
+
+/* Luxury Gold Leaf Shimmer Sheen */
+@keyframes goldShimmerSweep {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-gold-shimmer {
+  background-size: 200% auto;
+  animation: goldShimmerSweep 5s linear infinite;
+}
+
+/* Sky Lantern Rise into Galaxy with strictly linear constant speed & GPU acceleration */
+@keyframes skyLanternAscendStraight {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    opacity: 0.95;
+  }
+  25% {
+    transform: translate3d(-8px, -32.5vh, 0) scale(0.92) rotate(-1deg);
+    opacity: 0.92;
+  }
+  50% {
+    transform: translate3d(0px, -65vh, 0) scale(0.82) rotate(0deg);
+    opacity: 0.85;
+  }
+  75% {
+    transform: translate3d(8px, -97.5vh, 0) scale(0.72) rotate(1deg);
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate3d(0px, -130vh, 0) scale(0.6) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+@keyframes skyLanternAscendDriftLeft {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    opacity: 0.95;
+  }
+  25% {
+    transform: translate3d(-18px, -32.5vh, 0) scale(0.91) rotate(-1.5deg);
+    opacity: 0.92;
+  }
+  50% {
+    transform: translate3d(-36px, -65vh, 0) scale(0.82) rotate(-1deg);
+    opacity: 0.85;
+  }
+  75% {
+    transform: translate3d(-54px, -97.5vh, 0) scale(0.71) rotate(-1.8deg);
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate3d(-72px, -130vh, 0) scale(0.58) rotate(-1deg);
+    opacity: 0;
+  }
+}
+
+@keyframes skyLanternAscendDriftRight {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    opacity: 0.95;
+  }
+  25% {
+    transform: translate3d(18px, -32.5vh, 0) scale(0.91) rotate(1.5deg);
+    opacity: 0.92;
+  }
+  50% {
+    transform: translate3d(36px, -65vh, 0) scale(0.82) rotate(1deg);
+    opacity: 0.85;
+  }
+  75% {
+    transform: translate3d(54px, -97.5vh, 0) scale(0.71) rotate(1.8deg);
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate3d(72px, -130vh, 0) scale(0.58) rotate(1deg);
+    opacity: 0;
+  }
+}
+
+@keyframes skyLanternAscendSway {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    opacity: 0.95;
+  }
+  25% {
+    transform: translate3d(20px, -32.5vh, 0) scale(0.91) rotate(1.8deg);
+    opacity: 0.92;
+  }
+  50% {
+    transform: translate3d(0px, -65vh, 0) scale(0.82) rotate(0deg);
+    opacity: 0.85;
+  }
+  75% {
+    transform: translate3d(-20px, -97.5vh, 0) scale(0.71) rotate(-1.8deg);
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate3d(0px, -130vh, 0) scale(0.58) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+@keyframes lanternProgressGrow {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-sky-lantern-rise {
+  animation: skyLanternAscendStraight 6.2s linear forwards;
+  will-change: transform;
+}
+
+.animate-lantern-drift-left {
+  animation: skyLanternAscendDriftLeft 6.4s linear forwards;
+  will-change: transform;
+}
+
+.animate-lantern-drift-right {
+  animation: skyLanternAscendDriftRight 6.4s linear forwards;
+  will-change: transform;
+}
+
+.animate-lantern-drift-zigzag {
+  animation: skyLanternAscendSway 6.5s linear forwards;
+  will-change: transform;
+}
+
+.animate-lantern-progress-bar {
+  animation: lanternProgressGrow 4.8s linear forwards;
+  will-change: width;
+}
+
+/* Floating Water Lotus Lantern */
+@keyframes waterLotusDrift {
+  0%, 100% {
+    transform: translateY(0px) rotate(-1.5deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(1.5deg);
+  }
+}
+
+.animate-water-lotus {
+  animation: waterLotusDrift 4s ease-in-out infinite;
+}
+
+/* Royal Wax Seal Glow Pulse */
+@keyframes waxSealPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(220, 38, 38, 0.6), 0 0 30px rgba(245, 158, 11, 0.4);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(220, 38, 38, 0.9), 0 0 45px rgba(245, 158, 11, 0.7);
+    transform: scale(1.03);
+  }
+}
+
+.animate-wax-seal {
+  animation: waxSealPulse 2.8s ease-in-out infinite;
+}
+
+/* Mẫu 10: "Trăng & Hoa" (Moon & Lotus) Keyframe Animations */
+@keyframes lotusPetalFallDown {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(0.9);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate3d(24px, 50vh, 0) rotate(140deg) scale(1);
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate3d(-18px, 105vh, 0) rotate(320deg) scale(0.85);
+    opacity: 0;
+  }
+}
+
+.animate-lotus-petal-fall {
+  animation: lotusPetalFallDown linear infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes celestialCloudSlowLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(-5%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes celestialCloudSlowRight {
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(6%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-cloud-drift-slow-left {
+  animation: celestialCloudSlowLeft 28s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-cloud-drift-slow-right {
+  animation: celestialCloudSlowRight 34s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Zoomable QR code indicators */
+img[src*="vietqr"],
+img[src*="api.vietqr.io"],
+img[src*="img.vietqr.io"],
+[data-qr-zoom] {
+  cursor: pointer;
+}
+
+
+

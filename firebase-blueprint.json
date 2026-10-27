@@ -1,0 +1,164 @@
+{
+  "entities": {
+    "Wedding": {
+      "title": "Wedding",
+      "description": "Wedding invitation data and settings for a couple",
+      "type": "object",
+      "properties": {
+        "slug": { "type": "string", "maxLength": 100 },
+        "groomName": { "type": "string", "maxLength": 100 },
+        "brideName": { "type": "string", "maxLength": 100 },
+        "weddingDate": { "type": "string", "maxLength": 20 },
+        "weddingDateTime": { "type": "string", "maxLength": 30 },
+        "city": { "type": "string", "maxLength": 100 },
+        "romanticQuote": { "type": "string", "maxLength": 500 },
+        "coverImage": { "type": "string", "maxLength": 1000 },
+        "musicUrl": { "type": "string", "maxLength": 1000 },
+        "template": { "type": "string", "maxLength": 50 }
+      },
+      "required": ["slug", "groomName", "brideName", "weddingDate", "template"]
+    },
+    "RSVPGuest": {
+      "title": "RSVPGuest",
+      "description": "Guest attendance confirmation for a wedding",
+      "type": "object",
+      "properties": {
+        "weddingId": { "type": "string", "maxLength": 128 },
+        "fullName": { "type": "string", "maxLength": 100 },
+        "phone": { "type": "string", "maxLength": 25 },
+        "attending": { "type": "boolean" },
+        "guestsCount": { "type": "number" },
+        "guestOf": { "type": "string", "enum": ["groom", "bride", "both"] },
+        "message": { "type": "string", "maxLength": 1000 },
+        "createdAt": { "type": "string", "maxLength": 50 }
+      },
+      "required": ["weddingId", "fullName", "phone", "attending", "guestOf"]
+    },
+    "WishMessage": {
+      "title": "WishMessage",
+      "description": "Guestbook wish message left for the couple",
+      "type": "object",
+      "properties": {
+        "weddingId": { "type": "string", "maxLength": 128 },
+        "authorName": { "type": "string", "maxLength": 100 },
+        "relation": { "type": "string", "maxLength": 50 },
+        "content": { "type": "string", "maxLength": 1000 },
+        "likesCount": { "type": "number" },
+        "isApproved": { "type": "boolean" },
+        "createdAt": { "type": "string", "maxLength": 50 }
+      },
+      "required": ["weddingId", "authorName", "content"]
+    },
+    "PackageUpgradeRequest": {
+      "title": "PackageUpgradeRequest",
+      "description": "Customer request to upgrade wedding package after payment difference",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "orderCode": { "type": "string", "maxLength": 50 },
+        "weddingId": { "type": "string", "maxLength": 128 },
+        "weddingSlug": { "type": "string", "maxLength": 100 },
+        "customerName": { "type": "string", "maxLength": 150 },
+        "customerPhone": { "type": "string", "maxLength": 30 },
+        "currentPackage": { "type": "string", "maxLength": 50 },
+        "currentPackageName": { "type": "string", "maxLength": 100 },
+        "targetPackage": { "type": "string", "maxLength": 50 },
+        "targetPackageName": { "type": "string", "maxLength": 100 },
+        "currentPaidAmount": { "type": "number" },
+        "targetPrice": { "type": "number" },
+        "upgradeAmount": { "type": "number" },
+        "transferMemo": { "type": "string", "maxLength": 100 },
+        "status": { "type": "string", "enum": ["PENDING", "APPROVED", "REJECTED"] },
+        "createdAt": { "type": "string", "maxLength": 50 }
+      },
+      "required": ["id", "orderCode", "customerName", "customerPhone", "targetPackage", "upgradeAmount", "status"]
+    },
+    "LeaderboardEntry": {
+      "title": "LeaderboardEntry",
+      "description": "Love game leaderboard entry with player nickname and points",
+      "type": "object",
+      "properties": {
+        "weddingId": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 100 },
+        "team": { "type": "string", "enum": ["groom", "bride", "both"] },
+        "points": { "type": "number" },
+        "avatar": { "type": "string", "maxLength": 500 },
+        "badge": { "type": "string", "maxLength": 100 },
+        "ticketCode": { "type": "string", "maxLength": 50 },
+        "createdAt": { "type": "string", "maxLength": 50 }
+      },
+      "required": ["weddingId", "name", "points"]
+    },
+    "Lock": {
+      "title": "Lock",
+      "description": "System lock record to restrict access to a wedding card across devices",
+      "type": "object",
+      "properties": {
+        "locked": { "type": "boolean" },
+        "status": { "type": "string", "maxLength": 20 },
+        "slug": { "type": "string", "maxLength": 100 },
+        "orderCode": { "type": "string", "maxLength": 50 },
+        "id": { "type": "string", "maxLength": 128 },
+        "updatedAt": { "type": "string", "maxLength": 50 }
+      },
+      "required": ["locked", "status"]
+    }
+  },
+  "firestore": {
+    "/leaderboards/{entryId}": {
+      "schema": "LeaderboardEntry",
+      "description": "Love game global leaderboard entries"
+    },
+    "/weddings/{weddingId}/leaderboards/{entryId}": {
+      "schema": "LeaderboardEntry",
+      "description": "Love game leaderboard entries scoped to wedding"
+    },
+    "/upgrade_requests/{requestId}": {
+      "schema": "PackageUpgradeRequest",
+      "description": "Customer upgrade package requests requiring admin confirmation"
+    },
+    "/weddings/{weddingId}": {
+      "schema": "Wedding",
+      "description": "Public and editable wedding invitation profile"
+    },
+    "/weddings/{weddingId}/rsvps/{rsvpId}": {
+      "schema": "RSVPGuest",
+      "description": "RSVP submissions from wedding guests"
+    },
+    "/weddings/{weddingId}/wishes/{wishId}": {
+      "schema": "WishMessage",
+      "description": "Guestbook blessing messages for the couple"
+    },
+    "/wishes/{wishId}": {
+      "schema": "WishMessage",
+      "description": "Guestbook blessing messages for the couple (root collection)"
+    },
+    "/rsvps/{rsvpId}": {
+      "schema": "RSVPGuest",
+      "description": "RSVP submissions from wedding guests (root collection)"
+    },
+    "/leads/{leadId}": {
+      "schema": "Lead",
+      "description": "Potential customers requesting wedding invitation order or consultation"
+    },
+    "/packages/{packageId}": {
+      "schema": "Package",
+      "description": "Commercial pricing packages"
+    },
+    "/templates/{templateId}": {
+      "schema": "Template",
+      "description": "Commercial wedding invitation templates"
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Customer purchase orders"
+    },
+    "/locks/{lockId}": {
+      "schema": "Lock",
+      "description": "Cross-device wedding lock status flags set by admin"
+    },
+    "/config/{configId}": {
+      "description": "Platform global configurations (payment, site content)"
+    }
+  }
+}

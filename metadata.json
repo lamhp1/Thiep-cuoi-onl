@@ -1,0 +1,7 @@
+{
+  "name": "L'Amour Wedding - Nền Tảng Thiệp Cưới Online Cao Cấp",
+  "description": "Nền tảng thiệp cưới online cao cấp với album ảnh, RSVP, sổ lưu bút, mừng cưới VietQR, âm nhạc và bộ sưu tập mẫu thiệp đa phong cách từ Sử Thi Hoàng Gia đến Kỷ Nguyên Tương Lai 2026.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

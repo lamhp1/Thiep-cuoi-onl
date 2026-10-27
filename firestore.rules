@@ -1,0 +1,159 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Default deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidWedding(data) {
+      return data.slug is string && data.slug.size() <= 100 &&
+             data.groomName is string && data.groomName.size() <= 100 &&
+             data.brideName is string && data.brideName.size() <= 100 &&
+             data.weddingDate is string && data.weddingDate.size() <= 30;
+    }
+
+    function isValidRSVP(data) {
+      return data.weddingId is string && data.weddingId.size() <= 128 &&
+             data.fullName is string && data.fullName.size() > 0 && data.fullName.size() <= 100 &&
+             data.phone is string && data.phone.size() > 0 && data.phone.size() <= 25 &&
+             data.attending is bool &&
+             data.guestsCount is number && data.guestsCount >= 0 && data.guestsCount <= 50;
+    }
+
+    function isValidWish(data) {
+      return data.weddingId is string && data.weddingId.size() <= 128 &&
+             data.authorName is string && data.authorName.size() > 0 && data.authorName.size() <= 100 &&
+             data.content is string && data.content.size() > 0 && data.content.size() <= 1000;
+    }
+
+    // Test connection collection
+    match /test/{testId} {
+      allow read: if true;
+    }
+
+    // Root wishes collection
+    match /wishes/{wishId} {
+      allow get, list: if true;
+      allow create: if isValidId(wishId) && isValidWish(incoming());
+      allow update: if isValidId(wishId) && (
+        incoming().diff(existing()).affectedKeys().hasOnly(['likesCount']) ||
+        incoming().diff(existing()).affectedKeys().hasOnly(['isApproved'])
+      );
+      allow delete: if isValidId(wishId);
+    }
+
+    // Root RSVPs collection
+    match /rsvps/{rsvpId} {
+      allow get, list: if true;
+      allow create: if isValidId(rsvpId) && isValidRSVP(incoming());
+      allow update: if isValidId(rsvpId) && isValidRSVP(incoming());
+      allow delete: if isValidId(rsvpId);
+    }
+
+    // Love Game Leaderboard entries
+    match /leaderboards/{entryId} {
+      allow get, list: if true;
+      allow create, update: if isValidId(entryId) &&
+                            incoming().name is string && incoming().name.size() > 0 && incoming().name.size() <= 100 &&
+                            incoming().points is number && incoming().points >= 0 && incoming().points <= 100000;
+      allow delete: if isValidId(entryId);
+    }
+
+    // Leads collection (Customer consultation & orders inquiries)
+    match /leads/{leadId} {
+      allow get, list: if true;
+      allow create: if isValidId(leadId) &&
+                    incoming().phone is string && incoming().phone.size() > 0 && incoming().phone.size() <= 30 &&
+                    incoming().name is string && incoming().name.size() > 0 && incoming().name.size() <= 150;
+      allow update, delete: if isValidId(leadId);
+    }
+
+    // Platform configurations (payment, site content, etc.)
+    match /config/{configId} {
+      allow get, list: if true;
+      allow create, update, delete: if isValidId(configId);
+    }
+
+    // Commercial packages (Read public)
+    match /packages/{packageId} {
+      allow get, list: if true;
+      allow create, update, delete: if isValidId(packageId);
+    }
+
+    // Commercial templates (Read public)
+    match /templates/{templateId} {
+      allow get, list: if true;
+      allow create, update, delete: if isValidId(templateId);
+    }
+
+    // Commercial orders
+    match /orders/{orderId} {
+      allow get, list: if true;
+      allow create, update, delete: if isValidId(orderId);
+    }
+
+    // Package Upgrade Requests
+    match /upgrade_requests/{requestId} {
+      allow get, list: if true;
+      allow create, update, delete: if isValidId(requestId);
+    }
+
+    // System Locks Collection (for instantaneous cross-device wedding lock enforcement)
+    match /locks/{lockId} {
+      allow get, list: if true;
+      allow create, update, delete: if isValidId(lockId);
+    }
+
+    // Weddings collection
+    match /weddings/{weddingId} {
+      allow get, list: if true;
+      allow create, update: if isValidId(weddingId) && (
+        isValidWedding(incoming()) ||
+        request.resource.data.status is string
+      );
+      allow delete: if isValidId(weddingId);
+
+      // RSVPs subcollection
+      match /rsvps/{rsvpId} {
+        allow get, list: if true;
+        allow create, update: if isValidId(rsvpId) && isValidRSVP(incoming());
+        allow delete: if isValidId(rsvpId);
+      }
+
+      // Wishes subcollection
+      match /wishes/{wishId} {
+        allow get, list: if true;
+        allow create: if isValidId(wishId) && isValidWish(incoming());
+        allow update: if isValidId(wishId) && (
+          incoming().diff(existing()).affectedKeys().hasOnly(['likesCount']) ||
+          incoming().diff(existing()).affectedKeys().hasOnly(['isApproved'])
+        );
+        allow delete: if isValidId(wishId);
+      }
+
+      // Leaderboards subcollection
+      match /leaderboards/{entryId} {
+        allow get, list: if true;
+        allow create, update: if isValidId(entryId) &&
+                              incoming().name is string && incoming().name.size() > 0 && incoming().name.size() <= 100 &&
+                              incoming().points is number && incoming().points >= 0 && incoming().points <= 100000;
+        allow delete: if isValidId(entryId);
+      }
+    }
+  }
+}
