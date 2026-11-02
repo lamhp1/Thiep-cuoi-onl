@@ -78,7 +78,7 @@ export function LoveLetterTemplate({
   };
 
   return (
-    <div className="min-h-screen bg-[#F7F1E7] text-[#59483E] font-serif antialiased relative selection:bg-[#7A2638] selection:text-[#FFFDF8]">
+    <div className="min-h-screen overflow-x-clip bg-[#F7F1E7] text-[#59483E] font-serif antialiased relative selection:bg-[#7A2638] selection:text-[#FFFDF8]">
       {/* Paper texture grain & ruled notebook lines across entire letter */}
       <LoveLetterPaperTexture />
 

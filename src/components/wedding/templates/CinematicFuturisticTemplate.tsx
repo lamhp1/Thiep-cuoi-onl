@@ -80,7 +80,7 @@ export function CinematicFuturisticTemplate({
   return (
     <motion.div
       style={{ backgroundColor: dynamicBg }}
-      className="template-cinematic-futuristic relative min-h-screen text-[#F1F5F9] transition-colors duration-700 font-body overflow-x-hidden selection:bg-[#00F0FF] selection:text-[#050711]"
+      className="template-cinematic-futuristic relative min-h-screen text-[#F1F5F9] transition-colors duration-700 font-body overflow-x-clip selection:bg-[#00F0FF] selection:text-[#050711]"
     >
       {/* 1. Màn Khởi Hành Đột Phá "Quantum Warp Drive Prologue" */}
       {!hasOpened && (

@@ -277,7 +277,7 @@ export function VietnameseLuxuryTemplate({
   return (
     <div
       id="vietnamese-luxury-template-root"
-      className="relative min-h-screen bg-[#F7F1E5] text-[#5A4031] font-body selection:bg-[#9E1B32] selection:text-white"
+      className="relative min-h-screen bg-[#F7F1E5] text-[#5A4031] font-body selection:bg-[#9E1B32] selection:text-white overflow-x-clip"
     >
       {/* 1. Traditional Vietnamese Opening Envelope */}
       {!isCurtainOpened && (
@@ -294,7 +294,7 @@ export function VietnameseLuxuryTemplate({
       {showPetals && <PetalsFalling />}
 
       {/* Toggle Petals Pill (Fixed on Bottom Right) */}
-      <div className="fixed bottom-6 right-6 z-40">
+      <div className="fixed bottom-18 right-3.5 sm:bottom-6 sm:right-6 z-40">
         <button
           onClick={() => setShowPetals(!showPetals)}
           className="p-2.5 rounded-full bg-[#FFFDF8]/90 hover:bg-[#FFFDF8] border border-[#C8A45D] text-[#9E1B32] shadow-lg backdrop-blur-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
@@ -617,7 +617,7 @@ export function VietnameseLuxuryTemplate({
         </motion.div>
 
         {/* Couple Cards Grid */}
-        <div className="grid grid-cols-2 gap-3 sm:gap-8 md:gap-10 lg:gap-14 relative items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-14 relative items-stretch">
           {/* Center Double Happiness Emblem for Desktop */}
           <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-14 h-14 rounded-full bg-gradient-to-tr from-[#9E1B32] to-[#7F1734] border-2 border-[#C8A45D] items-center justify-center text-[#E5D1A1] shadow-2xl">
             <SongHyIcon className="w-7 h-7 text-[#E5D1A1]" />
@@ -629,14 +629,14 @@ export function VietnameseLuxuryTemplate({
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col items-center p-3 sm:p-7 md:p-10 rounded-2xl sm:rounded-3xl bg-[#FFFDF8] border sm:border-2 border-[#C8A45D]/40 shadow-lg hover:shadow-2xl transition-all text-center relative group"
+            className="flex flex-col items-center p-5 sm:p-7 md:p-10 rounded-2xl sm:rounded-3xl bg-[#FFFDF8] border sm:border-2 border-[#C8A45D]/40 shadow-lg hover:shadow-2xl transition-all text-center relative group"
           >
             <TraditionalCorner position="top-left" className="absolute top-1.5 left-1.5 sm:top-3 sm:left-3 w-4 h-4 sm:w-7 sm:h-7 text-[#C8A45D]/60" />
             <TraditionalCorner position="bottom-right" className="absolute bottom-1.5 right-1.5 sm:bottom-3 sm:right-3 w-4 h-4 sm:w-7 sm:h-7 text-[#C8A45D]/60" />
 
             {/* Avatar with Royal Double Ring */}
             <div className="relative mb-3 sm:mb-6">
-              <div className="w-20 h-20 xs:w-24 xs:h-24 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-52 lg:h-52 rounded-full p-1 sm:p-1.5 border sm:border-2 border-[#9E1B32] shadow-md group-hover:border-[#C8A45D] transition-colors bg-[#F7F1E5]">
+              <div className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-52 lg:h-52 rounded-full p-1.5 border sm:border-2 border-[#9E1B32] shadow-md group-hover:border-[#C8A45D] transition-colors bg-[#F7F1E5]">
                 <img
                   src={data.groom.avatar}
                   alt={data.groom.fullName}
@@ -649,7 +649,7 @@ export function VietnameseLuxuryTemplate({
               </span>
             </div>
 
-            <h3 className="font-serif-title text-sm xs:text-base sm:text-2xl md:text-3xl font-bold text-[#7F1734] mt-1 sm:mt-2 leading-tight">
+            <h3 className="font-serif-title text-xl sm:text-2xl md:text-3xl font-bold text-[#7F1734] mt-1 sm:mt-2 leading-tight">
               {data.groom.fullName}
             </h3>
 
@@ -661,7 +661,7 @@ export function VietnameseLuxuryTemplate({
               </div>
             )}
 
-            <p className="text-[10.5px] sm:text-sm text-[#5A4031]/90 leading-relaxed my-2 sm:my-4 text-center line-clamp-4 sm:line-clamp-none flex-1">
+            <p className="text-xs sm:text-sm text-[#5A4031]/90 leading-relaxed my-2.5 sm:my-4 text-center flex-1">
               {data.groom.bio}
             </p>
 
@@ -709,14 +709,14 @@ export function VietnameseLuxuryTemplate({
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col items-center p-3 sm:p-7 md:p-10 rounded-2xl sm:rounded-3xl bg-[#FFFDF8] border sm:border-2 border-[#C8A45D]/40 shadow-lg hover:shadow-2xl transition-all text-center relative group"
+            className="flex flex-col items-center p-5 sm:p-7 md:p-10 rounded-2xl sm:rounded-3xl bg-[#FFFDF8] border sm:border-2 border-[#C8A45D]/40 shadow-lg hover:shadow-2xl transition-all text-center relative group"
           >
             <TraditionalCorner position="top-right" className="absolute top-1.5 right-1.5 sm:top-3 sm:right-3 w-4 h-4 sm:w-7 sm:h-7 text-[#C8A45D]/60" />
             <TraditionalCorner position="bottom-left" className="absolute bottom-1.5 left-1.5 sm:bottom-3 sm:left-3 w-4 h-4 sm:w-7 sm:h-7 text-[#C8A45D]/60" />
 
             {/* Avatar with Royal Double Ring */}
             <div className="relative mb-3 sm:mb-6">
-              <div className="w-20 h-20 xs:w-24 xs:h-24 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-52 lg:h-52 rounded-full p-1 sm:p-1.5 border sm:border-2 border-[#9E1B32] shadow-md group-hover:border-[#C8A45D] transition-colors bg-[#F7F1E5]">
+              <div className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-52 lg:h-52 rounded-full p-1.5 border sm:border-2 border-[#9E1B32] shadow-md group-hover:border-[#C8A45D] transition-colors bg-[#F7F1E5]">
                 <img
                   src={data.bride.avatar}
                   alt={data.bride.fullName}
@@ -729,7 +729,7 @@ export function VietnameseLuxuryTemplate({
               </span>
             </div>
 
-            <h3 className="font-serif-title text-sm xs:text-base sm:text-2xl md:text-3xl font-bold text-[#7F1734] mt-1 sm:mt-2 leading-tight">
+            <h3 className="font-serif-title text-xl sm:text-2xl md:text-3xl font-bold text-[#7F1734] mt-1 sm:mt-2 leading-tight">
               {data.bride.fullName}
             </h3>
 
@@ -741,7 +741,7 @@ export function VietnameseLuxuryTemplate({
               </div>
             )}
 
-            <p className="text-[10.5px] sm:text-sm text-[#5A4031]/90 leading-relaxed my-2 sm:my-4 text-center line-clamp-4 sm:line-clamp-none flex-1">
+            <p className="text-xs sm:text-sm text-[#5A4031]/90 leading-relaxed my-2.5 sm:my-4 text-center flex-1">
               {data.bride.bio}
             </p>
 
@@ -1166,10 +1166,10 @@ export function VietnameseLuxuryTemplate({
         </motion.div>
 
         {/* Tab Switcher (Chú Rể / Cô Dâu) */}
-        <div className="inline-flex p-1.5 rounded-full bg-[#FFFDF8] border-2 border-[#C8A45D] shadow-md mb-8">
+        <div className="inline-flex flex-wrap justify-center p-1.5 rounded-2xl sm:rounded-full bg-[#FFFDF8] border-2 border-[#C8A45D] shadow-md mb-8 max-w-full gap-1">
           <button
             onClick={() => setActiveBankTab('groom')}
-            className={`px-6 py-2 rounded-full text-xs sm:text-sm font-bold tracking-wider transition-all cursor-pointer ${
+            className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-bold tracking-wider transition-all cursor-pointer ${
               activeBankTab === 'groom'
                 ? 'bg-[#9E1B32] text-[#FFFDF8] shadow'
                 : 'text-[#5A4031] hover:text-[#9E1B32]'
@@ -1179,7 +1179,7 @@ export function VietnameseLuxuryTemplate({
           </button>
           <button
             onClick={() => setActiveBankTab('bride')}
-            className={`px-6 py-2 rounded-full text-xs sm:text-sm font-bold tracking-wider transition-all cursor-pointer ${
+            className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-bold tracking-wider transition-all cursor-pointer ${
               activeBankTab === 'bride'
                 ? 'bg-[#9E1B32] text-[#FFFDF8] shadow'
                 : 'text-[#5A4031] hover:text-[#9E1B32]'

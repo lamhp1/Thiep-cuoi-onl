@@ -114,15 +114,15 @@ export function CyberpunkHero({
       </div>
 
       {/* Audio Control Floating Widget */}
-      <div className="relative z-30 pt-6 px-6 flex justify-between items-center max-w-6xl mx-auto w-full">
-        <div className="flex items-center space-x-2 bg-[#0B1026]/80 backdrop-blur-md border border-cyan-500/30 px-3 py-1.5 rounded-full text-xs font-mono text-cyan-400">
+      <div className="relative z-30 pt-4 px-4 sm:pt-6 sm:px-6 flex justify-between items-center gap-2 max-w-6xl mx-auto w-full">
+        <div className="flex items-center space-x-1.5 sm:space-x-2 bg-[#0B1026]/80 backdrop-blur-md border border-cyan-500/30 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-mono text-cyan-400">
           <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
           <span>CYBER HOLOGRAM 2027</span>
         </div>
 
         <button
           onClick={handleToggleAudio}
-          className={`flex items-center space-x-2 px-4 py-2 rounded-full border text-xs font-mono transition-all duration-300 ${
+          className={`flex items-center space-x-1.5 sm:space-x-2 px-2.5 sm:px-4 py-1 sm:py-2 rounded-full border text-[10px] sm:text-xs font-mono transition-all duration-300 shrink-0 ${
             isPlaying
               ? 'bg-cyan-500/20 border-cyan-400 text-cyan-300 shadow-[0_0_15px_rgba(0,240,255,0.3)]'
               : 'bg-slate-900/60 border-slate-700 text-slate-400 hover:border-slate-500'

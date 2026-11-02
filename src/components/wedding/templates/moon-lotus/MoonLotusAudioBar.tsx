@@ -36,7 +36,7 @@ export function MoonLotusAudioBar({ musicUrl }: MoonLotusAudioBarProps) {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-40">
+    <div className="fixed bottom-18 right-3.5 sm:bottom-6 sm:right-6 z-40">
       <button
         onClick={togglePlay}
         className={`cursor-pointer group flex items-center gap-2.5 p-2 sm:px-4 sm:py-2.5 rounded-full border border-[#EBD494]/60 shadow-[0_8px_30px_rgba(0,0,0,0.7)] backdrop-blur-xl transition-all duration-300 hover:scale-105 active:scale-95 ${

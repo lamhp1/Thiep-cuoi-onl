@@ -166,7 +166,7 @@ export function DualParallelTimeline({
           </p>
 
           {/* Perspective Selector Pills */}
-          <div className="flex items-center justify-center gap-2 pt-2">
+          <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
             <button
               onClick={() => setHoveredSide('both')}
               className={`px-3.5 py-1 text-xs rounded-full border transition-all cursor-pointer ${

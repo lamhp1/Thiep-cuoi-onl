@@ -86,7 +86,7 @@ export function PassportIdentityPage({
 
               <div className="flex gap-4">
                 {/* Photo with passport photo frame */}
-                <div className="w-28 sm:w-32 h-36 sm:h-40 rounded-lg border-2 border-[#B99552]/60 overflow-hidden shrink-0 bg-neutral-100 shadow-md p-1 relative">
+                <div className="w-24 xs:w-28 sm:w-32 h-32 xs:h-36 sm:h-40 rounded-lg border-2 border-[#B99552]/60 overflow-hidden shrink-0 bg-neutral-100 shadow-md p-1 relative">
                   <img
                     src={gPhoto}
                     alt={gName}
@@ -99,7 +99,7 @@ export function PassportIdentityPage({
                 </div>
 
                 {/* Details Data List */}
-                <div className="space-y-2 text-xs font-mono">
+                <div className="space-y-2 text-xs font-mono min-w-0 flex-1">
                   <div>
                     <span className="text-[9px] text-neutral-500 uppercase block tracking-wider">HỌ &amp; TÊN (FULL NAME)</span>
                     <span className="font-serif-title text-base sm:text-lg font-bold text-[#172A3A] block">
@@ -133,7 +133,7 @@ export function PassportIdentityPage({
 
               <div className="flex gap-4">
                 {/* Photo with passport photo frame */}
-                <div className="w-28 sm:w-32 h-36 sm:h-40 rounded-lg border-2 border-[#B99552]/60 overflow-hidden shrink-0 bg-neutral-100 shadow-md p-1 relative">
+                <div className="w-24 xs:w-28 sm:w-32 h-32 xs:h-36 sm:h-40 rounded-lg border-2 border-[#B99552]/60 overflow-hidden shrink-0 bg-neutral-100 shadow-md p-1 relative">
                   <img
                     src={bPhoto}
                     alt={bName}
@@ -146,7 +146,7 @@ export function PassportIdentityPage({
                 </div>
 
                 {/* Details Data List */}
-                <div className="space-y-2 text-xs font-mono">
+                <div className="space-y-2 text-xs font-mono min-w-0 flex-1">
                   <div>
                     <span className="text-[9px] text-neutral-500 uppercase block tracking-wider">HỌ &amp; TÊN (FULL NAME)</span>
                     <span className="font-serif-title text-base sm:text-lg font-bold text-[#172A3A] block">
@@ -170,8 +170,8 @@ export function PassportIdentityPage({
             </div>
           </div>
 
-          {/* Animated Passport Stamp: Slamming down effect */}
-          <div className="absolute right-4 sm:right-12 bottom-20 sm:bottom-16 pointer-events-none">
+          {/* Animated Passport Stamp: Slamming down effect (stacked cleanly on mobile, absolute on sm+) */}
+          <div className="relative sm:absolute sm:right-12 sm:bottom-16 flex justify-center sm:block mt-4 sm:mt-0 pointer-events-none">
             <motion.div
               initial={{ scale: 1.6, opacity: 0, rotate: 15 }}
               whileInView={{ scale: 1, opacity: 0.9, rotate: -6 }}

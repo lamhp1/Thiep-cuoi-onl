@@ -138,7 +138,7 @@ export function FuturisticMissionPoster({ data }: FuturisticMissionPosterProps) 
         {events.map((evt, idx) => (
           <div
             key={evt.id || idx}
-            className="relative bg-[#090E26]/90 border border-[#00F0FF]/35 hover:border-[#00F0FF] rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-neon-cyan transition-all duration-300 flex flex-col justify-between space-y-6 group"
+            className="relative bg-[#090E26]/90 border border-[#00F0FF]/35 hover:border-[#00F0FF] rounded-3xl p-6 pt-11 sm:p-8 backdrop-blur-xl shadow-neon-cyan transition-all duration-300 flex flex-col justify-between space-y-6 group"
           >
             {/* Corner cyber marker */}
             <div className="absolute top-4 right-4 text-[10px] font-mono text-[#00F0FF] border border-[#00F0FF]/40 px-2.5 py-0.5 rounded-full">

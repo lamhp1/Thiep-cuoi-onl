@@ -48,7 +48,7 @@ export function FairytaleAudioBar({
   };
 
   return (
-    <div className="fixed bottom-5 right-5 z-40 flex items-center gap-2">
+    <div className="fixed bottom-18 right-3.5 sm:bottom-5 sm:right-5 z-40 flex items-center gap-2">
       <audio ref={audioRef} src={defaultMusic} loop preload="auto" />
 
       {/* Floating Bamboo Wood & Gold Coin Audio Controller */}

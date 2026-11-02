@@ -108,9 +108,9 @@ export function TraditionalPaperScrollStory({
         {/* Traditional Silk/Paper Scroll Container (Cuộn giấy thư pháp) */}
         <div className="relative mx-auto bg-[#FFFDF9] rounded-2xl shadow-[0_20px_50px_rgba(186,30,40,0.08)] border-2 border-[#D4AF37]/50 p-5 sm:p-10">
           {/* Top Scroll Rod (Trục cuốn gấm lụa trên) */}
-          <div className="relative -top-8 -mx-6 sm:-mx-12 h-7 bg-gradient-to-r from-[#690B12] via-[#BA1E28] to-[#690B12] rounded-full shadow-lg border border-[#D4AF37] flex items-center justify-between px-4 sm:px-6">
+          <div className="relative -top-8 -mx-3 sm:-mx-12 h-7 bg-gradient-to-r from-[#690B12] via-[#BA1E28] to-[#690B12] rounded-full shadow-lg border border-[#D4AF37] flex items-center justify-between px-3 sm:px-6">
             <div className="w-4 h-4 rounded-full bg-[#D4AF37] border-2 border-white shadow-xs" />
-            <div className="flex items-center gap-2 text-[#FBEED1] text-[11px] font-serif-title uppercase tracking-[0.3em]">
+            <div className="flex items-center gap-2 text-[#FBEED1] text-[10px] sm:text-[11px] font-serif-title uppercase tracking-[0.18em] sm:tracking-[0.3em]">
               <SongHyGlyph className="w-3.5 h-3.5 text-[#FBEED1]" />
               <span>Cuộn Thư Hỷ Sự</span>
               <SongHyGlyph className="w-3.5 h-3.5 text-[#FBEED1]" />
@@ -230,9 +230,9 @@ export function TraditionalPaperScrollStory({
           </div>
 
           {/* Bottom Scroll Rod (Trục cuốn gấm lụa dưới) */}
-          <div className="relative -bottom-8 -mx-6 sm:-mx-12 h-7 bg-gradient-to-r from-[#690B12] via-[#BA1E28] to-[#690B12] rounded-full shadow-lg border border-[#D4AF37] flex items-center justify-between px-4 sm:px-6">
+          <div className="relative -bottom-8 -mx-3 sm:-mx-12 h-7 bg-gradient-to-r from-[#690B12] via-[#BA1E28] to-[#690B12] rounded-full shadow-lg border border-[#D4AF37] flex items-center justify-between px-3 sm:px-6">
             <div className="w-4 h-4 rounded-full bg-[#D4AF37] border-2 border-white shadow-xs" />
-            <div className="flex items-center gap-2 text-[#FBEED1] text-[11px] font-serif-title uppercase tracking-[0.3em]">
+            <div className="flex items-center gap-2 text-[#FBEED1] text-[10px] sm:text-[11px] font-serif-title uppercase tracking-[0.18em] sm:tracking-[0.3em]">
               <SongHyGlyph className="w-3.5 h-3.5 text-[#FBEED1]" />
               <span>Bách Niên Giai Lão</span>
               <SongHyGlyph className="w-3.5 h-3.5 text-[#FBEED1]" />

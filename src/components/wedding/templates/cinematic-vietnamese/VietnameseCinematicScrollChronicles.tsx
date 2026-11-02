@@ -100,12 +100,12 @@ function SingleChronicleChapter({
       </div>
 
       {/* Reel Header Watermark */}
-      <div className="absolute top-8 left-6 sm:left-12 z-20 flex items-center gap-3 text-[10px] sm:text-xs font-serif tracking-[0.3em] uppercase text-[#D4AF37]/80">
+      <div className="absolute top-6 sm:top-8 left-4 sm:left-12 z-20 flex items-center gap-2 sm:gap-3 text-[9px] sm:text-xs font-serif tracking-[0.14em] sm:tracking-[0.3em] uppercase text-[#D4AF37]/80">
         <Film className="w-3.5 h-3.5 text-[#D4AF37]" />
         <span>SỬ KÝ HỶ SỰ &nbsp;•&nbsp; HỒI THỨ {hoiRomanNumeral}</span>
       </div>
 
-      <div className="absolute top-8 right-6 sm:right-12 z-20 text-xs sm:text-sm font-serif tracking-[0.25em] text-[#F3E5AB]/90 border border-[#D4AF37]/40 px-3 py-1 rounded-full bg-black/40 backdrop-blur-xs">
+      <div className="absolute top-5 sm:top-8 right-4 sm:right-12 z-20 text-[10px] sm:text-sm font-serif tracking-[0.15em] sm:tracking-[0.25em] text-[#F3E5AB]/90 border border-[#D4AF37]/40 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-black/40 backdrop-blur-xs">
         {milestone.year || '2026'}
       </div>
 
@@ -117,7 +117,7 @@ function SingleChronicleChapter({
           className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#590B11]/80 backdrop-blur-md border border-[#D4AF37] mb-4 shadow-xl"
         >
           <SongHyGlyph className="w-4 h-4 text-[#F3E5AB]" />
-          <span className="font-serif text-xs sm:text-sm font-bold tracking-[0.35em] uppercase text-[#FFF8EB]">
+          <span className="font-serif text-[11px] sm:text-sm font-bold tracking-[0.18em] sm:tracking-[0.35em] uppercase text-[#FFF8EB]">
             HỒI THỨ {hoiRomanNumeral} • {hoiTitleVietnamese}
           </span>
           <SongHyGlyph className="w-4 h-4 text-[#F3E5AB]" />

@@ -164,44 +164,52 @@ export function UniversalLiveAlbumTrigger({ wedding, onOpen }: UniversalLiveAlbu
   };
 
   const style = getTriggerStyle();
+  const hasCenteredBottomDock =
+    template.includes('cinematic-love-story') ||
+    template.includes('cinematic-vietnamese') ||
+    template.includes('game');
 
   return (
     <div
       id="universal-live-album-widget"
-      className="fixed bottom-5 right-4 sm:right-6 z-40 transition-all duration-300 animate-fadeIn"
+      className={`fixed z-40 transition-all duration-300 animate-fadeIn ${
+        hasCenteredBottomDock
+          ? 'bottom-20 left-3 sm:bottom-5 sm:left-auto sm:right-6'
+          : 'bottom-4 right-3 sm:bottom-5 sm:right-6'
+      }`}
     >
       <button
         id="trigger-live-album-btn"
         type="button"
         onClick={onOpen}
         aria-label="Xem Album Ảnh Ngày Cưới"
-        className={`group relative flex items-center gap-3 px-4 py-3 sm:px-5 sm:py-3.5 backdrop-blur-md transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95 ${
+        className={`group relative flex items-center gap-2 sm:gap-3 px-3 py-2 sm:px-5 sm:py-3.5 backdrop-blur-md transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95 ${
           style.isPill ? 'rounded-full' : 'rounded-2xl'
         } ${style.container}`}
       >
         {/* Pulsing Live Dot Animation */}
-        <span className="relative flex h-3.5 w-3.5 shrink-0">
+        <span className="relative flex h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 shrink-0">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-red-500"></span>
+          <span className="relative inline-flex rounded-full h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 bg-red-500"></span>
         </span>
 
         {/* Camera / Film Icon */}
         <div className="relative">
-          <Camera className={`w-5 h-5 sm:w-6 sm:h-6 shrink-0 ${style.iconColor}`} />
+          <Camera className={`w-4 h-4 sm:w-6 sm:h-6 shrink-0 ${style.iconColor}`} />
           <Sparkles className="w-2.5 h-2.5 text-amber-300 absolute -top-1 -right-1 animate-pulse" />
         </div>
 
         {/* Text information */}
         <div className="text-left font-body leading-tight">
-          <div className="flex items-center gap-1.5">
-            <span className="text-[11px] sm:text-xs font-bold tracking-wider uppercase font-serif-title">
+          <div className="flex items-center gap-1 sm:gap-1.5">
+            <span className="text-[10px] sm:text-xs font-bold tracking-wide sm:tracking-wider uppercase font-serif-title">
               {style.label}
             </span>
-            <span className="px-1.5 py-0.2 rounded-full text-[9px] uppercase tracking-wider font-extrabold bg-red-600 text-white animate-pulse">
+            <span className="px-1.5 py-0.2 rounded-full text-[8px] sm:text-[9px] uppercase tracking-wider font-extrabold bg-red-600 text-white animate-pulse">
               LIVE
             </span>
           </div>
-          <p className="text-[10px] sm:text-[11px] opacity-85 font-medium">
+          <p className="hidden sm:block text-[10px] sm:text-[11px] opacity-85 font-medium">
             {style.sublabel}
           </p>
         </div>
@@ -209,7 +217,7 @@ export function UniversalLiveAlbumTrigger({ wedding, onOpen }: UniversalLiveAlbu
         {/* Photo Count Tag */}
         {photoCount > 0 && (
           <span
-            className={`ml-1 px-2.5 py-1 rounded-full text-[11px] shrink-0 shadow-xs ${style.badge}`}
+            className={`ml-0.5 sm:ml-1 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full text-[10px] sm:text-[11px] shrink-0 shadow-xs ${style.badge}`}
           >
             {photoCount} ảnh
           </span>

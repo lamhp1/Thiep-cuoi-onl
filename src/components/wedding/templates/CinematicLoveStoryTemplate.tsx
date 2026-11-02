@@ -73,7 +73,7 @@ export function CinematicLoveStoryTemplate({
   return (
     <motion.div
       style={{ backgroundColor: dynamicBg }}
-      className="relative min-h-screen text-[#1A1816] transition-colors duration-700 font-body overflow-x-hidden selection:bg-[#E6C687] selection:text-black"
+      className="relative min-h-screen text-[#1A1816] transition-colors duration-700 font-body overflow-x-clip selection:bg-[#E6C687] selection:text-black"
     >
       {/* 1. Cinematic Opening Screen */}
       {!hasOpened && (

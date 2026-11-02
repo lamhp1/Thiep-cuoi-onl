@@ -100,7 +100,7 @@ export function PolaroidScrapbookTemplate({
   ];
 
   return (
-    <div className="relative min-h-screen bg-[#F8F3EA] text-[#2C211B] font-body scrapbook-desk-bg selection:bg-[#F9D5D3] selection:text-[#9C3858]">
+    <div className="relative min-h-screen overflow-x-clip bg-[#F8F3EA] text-[#2C211B] font-body scrapbook-desk-bg selection:bg-[#F9D5D3] selection:text-[#9C3858]">
       {/* Background Subtle Wood/Cork Texture Overlay */}
       <div className="fixed inset-0 scrapbook-grid-paper pointer-events-none opacity-40 z-0" />
 

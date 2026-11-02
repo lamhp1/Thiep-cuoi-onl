@@ -58,7 +58,7 @@ export function FloralRomanceTemplate({
   ];
 
   return (
-    <div className="relative min-h-screen bg-[#FFFDFD] text-[#3E2E31] font-body selection:bg-[#FCE4EC] selection:text-[#C2185B]">
+    <div className="relative min-h-screen overflow-x-clip bg-[#FFFDFD] text-[#3E2E31] font-body selection:bg-[#FCE4EC] selection:text-[#C2185B]">
       {/* 1. Envelope Curtain opening on initial visit */}
       {!isEnvelopeOpened && (
         <EnvelopeCurtain

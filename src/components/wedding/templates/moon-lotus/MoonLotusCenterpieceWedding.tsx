@@ -70,11 +70,11 @@ export function MoonLotusCenterpieceWedding({
           {/* Sits right over the moon: The Iconic Wedding Text requested */}
           <div
             onClick={handleMoonTap}
-            className="cursor-pointer absolute inset-0 z-20 flex flex-col items-center justify-center text-center p-6 select-none group"
+            className="cursor-pointer absolute inset-0 z-20 flex flex-col items-center justify-center text-center p-4 pb-8 sm:p-6 select-none group"
             title="Chạm vào vầng trăng để đón nhận ánh trăng chúc phúc"
           >
             {/* UNDER THE SAME MOON */}
-            <h3 className="font-serif text-xs sm:text-sm md:text-base uppercase tracking-[0.35em] text-[#3D1A1E] font-bold drop-shadow-xs transition-transform duration-300 group-hover:scale-105">
+            <h3 className="font-serif text-[10px] sm:text-sm md:text-base uppercase tracking-[0.2em] sm:tracking-[0.35em] text-[#3D1A1E] font-bold drop-shadow-xs transition-transform duration-300 group-hover:scale-105">
               UNDER THE SAME MOON
             </h3>
 
@@ -83,11 +83,11 @@ export function MoonLotusCenterpieceWedding({
 
             {/* MINH ANH & NGỌC MAI */}
             <div className="space-y-1">
-              <h1 className="text-2xl sm:text-4xl md:text-5xl font-serif-title font-bold text-[#2A060E] tracking-wider transition-transform duration-300 group-hover:scale-105">
+              <h1 className="text-xl sm:text-4xl md:text-5xl font-serif-title font-bold text-[#2A060E] tracking-wider transition-transform duration-300 group-hover:scale-105">
                 {groomName}
               </h1>
               <div className="text-xl sm:text-2xl font-serif text-[#751A29] font-bold">&amp;</div>
-              <h1 className="text-2xl sm:text-4xl md:text-5xl font-serif-title font-bold text-[#2A060E] tracking-wider transition-transform duration-300 group-hover:scale-105">
+              <h1 className="text-xl sm:text-4xl md:text-5xl font-serif-title font-bold text-[#2A060E] tracking-wider transition-transform duration-300 group-hover:scale-105">
                 {brideName}
               </h1>
             </div>
@@ -108,16 +108,16 @@ export function MoonLotusCenterpieceWedding({
           </div>
 
           {/* Flanking Blooming Lotus Flowers on Left & Right */}
-          <div className="absolute -left-12 sm:-left-24 bottom-2 z-30 pointer-events-none">
+          <div className="absolute -left-10 sm:-left-24 -bottom-4 sm:bottom-2 z-30 pointer-events-none scale-65 sm:scale-100">
             <ArtisticBloomingLotus size={150} bloomProgress={bloomFactor} />
           </div>
-          <div className="absolute -right-12 sm:-right-24 bottom-2 z-30 pointer-events-none transform -scale-x-100">
+          <div className="absolute -right-10 sm:-right-24 -bottom-4 sm:bottom-2 z-30 pointer-events-none transform -scale-x-100 scale-65 sm:scale-100">
             <ArtisticBloomingLotus size={150} bloomProgress={bloomFactor} />
           </div>
         </div>
 
         {/* Central Bottom Blooming Lotus (Rising from the Moonlit Water) */}
-        <div className="relative -mt-10 z-30 flex justify-center items-center">
+        <div className="relative -mt-8 sm:-mt-10 z-30 flex justify-center items-center scale-75 sm:scale-100 origin-top">
           <ArtisticBloomingLotus size={180} bloomProgress={bloomFactor} />
         </div>
 

@@ -78,7 +78,7 @@ export function LoveMapTemplate({
   };
 
   return (
-    <div className="min-h-screen bg-[#F5EFE3] text-[#443B35] font-sans antialiased relative selection:bg-[#722238] selection:text-[#FFFDF9]">
+    <div className="min-h-screen overflow-x-clip bg-[#F5EFE3] text-[#443B35] font-sans antialiased relative selection:bg-[#722238] selection:text-[#FFFDF9]">
       {/* Background paper texture overlay */}
       <LoveMapPaperTexture />
 

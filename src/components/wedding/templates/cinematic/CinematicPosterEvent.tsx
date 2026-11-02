@@ -230,10 +230,10 @@ export function CinematicPosterEvent({ data }: CinematicPosterEventProps) {
            =================================================================== */}
         <div className="relative border-4 border-[#E6C687]/40 rounded-3xl p-6 sm:p-12 md:p-16 bg-gradient-to-b from-[#181515] via-[#100D0D] to-[#080707] shadow-[0_20px_60px_rgba(0,0,0,0.8)] overflow-hidden">
           {/* Movie Poster Frame Accents */}
-          <div className="absolute top-4 left-4 text-[10px] font-mono tracking-[0.3em] uppercase text-[#E6C687]/70">
+          <div className="absolute top-4 left-4 text-[9px] sm:text-[10px] font-mono tracking-[0.15em] sm:tracking-[0.3em] uppercase text-[#E6C687]/70">
             OFFICIAL POSTER • PREMIERE
           </div>
-          <div className="absolute top-4 right-4 text-[10px] font-mono tracking-[0.3em] uppercase text-[#E6C687]/70">
+          <div className="hidden sm:block absolute top-4 right-4 text-[10px] font-mono tracking-[0.3em] uppercase text-[#E6C687]/70">
             RATED: PURE LOVE
           </div>
 

@@ -140,7 +140,7 @@ export function SideLanternColumns({ scrollProgress, onLanternClick }: SideLante
       {/* 3. Left Hanging Lanterns Flank with Imperial Eaves */}
       <aside
         aria-label="Đèn lồng cánh trái"
-        className="fixed top-0 left-1 sm:left-3 md:left-6 lg:left-10 z-20 flex flex-col gap-8 sm:gap-12 md:gap-14 pointer-events-none"
+        className="fixed top-0 left-0.5 sm:left-3 md:left-6 lg:left-10 z-20 flex flex-col gap-8 sm:gap-12 md:gap-14 pointer-events-none max-sm:scale-75 max-sm:origin-top-left max-sm:opacity-75"
       >
         {/* Top Imperial Wood Bracket / Eave */}
         <div className="w-12 sm:w-16 h-3 bg-linear-to-r from-amber-950 via-yellow-800 to-amber-900 border-b border-amber-600/40 rounded-b-sm shadow-md" />
@@ -150,7 +150,7 @@ export function SideLanternColumns({ scrollProgress, onLanternClick }: SideLante
       {/* 4. Right Hanging Lanterns Flank with Imperial Eaves */}
       <aside
         aria-label="Đèn lồng cánh phải"
-        className="fixed top-0 right-1 sm:right-3 md:right-6 lg:right-10 z-20 flex flex-col gap-8 sm:gap-12 md:gap-14 pointer-events-none"
+        className="fixed top-0 right-0.5 sm:right-3 md:right-6 lg:right-10 z-20 flex flex-col gap-8 sm:gap-12 md:gap-14 pointer-events-none max-sm:scale-75 max-sm:origin-top-right max-sm:opacity-75"
       >
         {/* Top Imperial Wood Bracket / Eave */}
         <div className="w-12 sm:w-16 h-3 bg-linear-to-r from-amber-900 via-yellow-800 to-amber-950 border-b border-amber-600/40 rounded-b-sm shadow-md ml-auto" />

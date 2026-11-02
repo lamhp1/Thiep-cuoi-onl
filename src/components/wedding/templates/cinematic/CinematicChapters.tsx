@@ -67,12 +67,12 @@ function SingleChapter({
       </div>
 
       {/* Film Strip Decorative Watermark */}
-      <div className="absolute top-8 left-6 sm:left-12 z-20 flex items-center gap-3 text-[10px] font-mono tracking-[0.3em] uppercase text-white/50">
+      <div className="absolute top-6 sm:top-8 left-4 sm:left-12 z-20 flex items-center gap-2 sm:gap-3 text-[9px] sm:text-[10px] font-mono tracking-[0.15em] sm:tracking-[0.3em] uppercase text-white/50">
         <Film className="w-3.5 h-3.5 text-[#E6C687]" />
         <span>REEL 0{chapterIndex + 1} &nbsp;•&nbsp; SCENE 0{chapterIndex + 1}</span>
       </div>
 
-      <div className="absolute top-8 right-6 sm:right-12 z-20 text-[10px] font-mono tracking-[0.3em] uppercase text-[#E6C687]/80">
+      <div className="absolute top-6 sm:top-8 right-4 sm:right-12 z-20 text-[9px] sm:text-[10px] font-mono tracking-[0.15em] sm:tracking-[0.3em] uppercase text-[#E6C687]/80">
         {milestone.year}
       </div>
 
@@ -92,7 +92,7 @@ function SingleChapter({
         {/* English Cinema Title: THE FIRST MEETING / FIRST DATE / THE PROPOSAL */}
         <motion.h2
           style={{ y: textY }}
-          className="font-serif-title text-3xl sm:text-5xl md:text-7xl font-black tracking-[0.2em] text-[#FAF6EE] uppercase drop-shadow-[0_4px_25px_rgba(0,0,0,0.9)] max-w-3xl"
+          className="font-serif-title text-2xl sm:text-5xl md:text-7xl font-black tracking-[0.12em] sm:tracking-[0.2em] text-[#FAF6EE] uppercase drop-shadow-[0_4px_25px_rgba(0,0,0,0.9)] max-w-3xl"
         >
           {chapterTitleEn}
         </motion.h2>

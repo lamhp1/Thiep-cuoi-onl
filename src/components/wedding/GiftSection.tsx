@@ -59,12 +59,12 @@ export function GiftSection({ gift, groomName, brideName }: GiftSectionProps) {
       </motion.div>
 
       {/* Groom & Bride Bank Switcher Tabs */}
-      <div className="inline-flex p-1.5 rounded-full bg-white/80 border border-[#D4AF37]/30 shadow-sm mb-8">
+      <div className="inline-flex flex-wrap justify-center p-1.5 rounded-2xl sm:rounded-full bg-white/80 border border-[#D4AF37]/30 shadow-sm mb-8 max-w-full gap-1">
         {gift.groomBank && (
           <button
             id="tab-groom-bank"
             onClick={() => setActiveTab('groom')}
-            className={`px-6 py-2.5 rounded-full text-xs sm:text-sm font-body font-medium transition-all cursor-pointer ${
+            className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-body font-medium transition-all cursor-pointer ${
               activeTab === 'groom'
                 ? 'bg-[#D4AF37] text-white shadow-md'
                 : 'text-neutral-600 hover:text-[#D4AF37]'
@@ -77,7 +77,7 @@ export function GiftSection({ gift, groomName, brideName }: GiftSectionProps) {
           <button
             id="tab-bride-bank"
             onClick={() => setActiveTab('bride')}
-            className={`px-6 py-2.5 rounded-full text-xs sm:text-sm font-body font-medium transition-all cursor-pointer ${
+            className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-body font-medium transition-all cursor-pointer ${
               activeTab === 'bride'
                 ? 'bg-[#D4AF37] text-white shadow-md'
                 : 'text-neutral-600 hover:text-[#D4AF37]'

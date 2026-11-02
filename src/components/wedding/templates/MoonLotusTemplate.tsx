@@ -71,7 +71,7 @@ export function MoonLotusTemplate({
 
   return (
     <div
-      className="relative min-h-screen text-[#FDFBF7] font-serif overflow-x-hidden selection:bg-[#751A29] selection:text-[#F4E4BA]"
+      className="relative min-h-screen text-[#FDFBF7] font-serif overflow-x-clip selection:bg-[#751A29] selection:text-[#F4E4BA]"
       style={{
         // Visual theme: Burgundy transitioning into Midnight Blue
         background: 'linear-gradient(180deg, #350814 0%, #200921 15%, #120D2A 35%, #080C22 55%, #050817 75%, #030510 100%)',

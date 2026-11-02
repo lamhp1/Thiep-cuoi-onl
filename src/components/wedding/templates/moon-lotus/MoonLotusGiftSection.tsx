@@ -78,10 +78,10 @@ export function MoonLotusGiftSection({
 
         {/* Tab Switcher: Nhà Trai / Nhà Gái */}
         <div className="flex justify-center">
-          <div className="inline-flex p-1 rounded-full bg-[#10142E] border border-[#EBD494]/40 shadow-lg">
+          <div className="inline-flex flex-wrap justify-center p-1 rounded-full bg-[#10142E] border border-[#EBD494]/40 shadow-lg max-w-full">
             <button
               onClick={() => setActiveTab('groom')}
-              className={`cursor-pointer px-6 py-2 rounded-full text-xs font-serif uppercase tracking-wider font-semibold transition-all ${
+              className={`cursor-pointer px-4 sm:px-6 py-2 rounded-full text-[11px] sm:text-xs font-serif uppercase tracking-wider font-semibold transition-all ${
                 activeTab === 'groom'
                   ? 'bg-gradient-to-r from-[#751A29] to-[#A8283D] text-white shadow-md'
                   : 'text-[#F4E4BA]/70 hover:text-white'
@@ -91,7 +91,7 @@ export function MoonLotusGiftSection({
             </button>
             <button
               onClick={() => setActiveTab('bride')}
-              className={`cursor-pointer px-6 py-2 rounded-full text-xs font-serif uppercase tracking-wider font-semibold transition-all ${
+              className={`cursor-pointer px-4 sm:px-6 py-2 rounded-full text-[11px] sm:text-xs font-serif uppercase tracking-wider font-semibold transition-all ${
                 activeTab === 'bride'
                   ? 'bg-gradient-to-r from-[#751A29] to-[#A8283D] text-white shadow-md'
                   : 'text-[#F4E4BA]/70 hover:text-white'

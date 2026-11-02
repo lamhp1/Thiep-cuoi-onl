@@ -112,7 +112,7 @@ export function LoveGameTemplate({
 
   return (
     <div
-      className="relative min-h-screen text-white font-sans overflow-x-hidden selection:bg-pink-500 selection:text-white"
+      className="relative min-h-screen text-white font-sans overflow-x-clip selection:bg-pink-500 selection:text-white"
       style={{
         background: 'linear-gradient(180deg, #0C0A17 0%, #15102A 20%, #170E28 40%, #110B22 65%, #0B0817 85%, #080612 100%)',
       }}

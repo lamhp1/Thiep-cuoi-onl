@@ -193,7 +193,7 @@ export function TraditionalRSVPSection({
                 <label className="block text-xs font-serif-title font-bold uppercase tracking-wider text-[#8B1119] mb-1.5">
                   Quý khách là người thân / bạn hữu của
                 </label>
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                   {[
                     { val: 'groom', label: `Nhà Trai (${groomName})` },
                     { val: 'bride', label: `Nhà Gái (${brideName})` },

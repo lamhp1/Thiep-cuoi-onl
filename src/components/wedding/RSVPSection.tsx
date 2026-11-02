@@ -106,7 +106,7 @@ export function RSVPSection({ weddingId, groomName, brideName }: RSVPSectionProp
       </motion.div>
 
       {/* Main Form or Success Card */}
-      <div className="p-8 sm:p-12 rounded-3xl bg-[#FFFDF9] text-[#2C2A29] border-2 border-[#D4AF37]/40 shadow-2xl relative">
+      <div className="p-5 sm:p-12 rounded-3xl bg-[#FFFDF9] text-[#2C2A29] border-2 border-[#D4AF37]/40 shadow-2xl relative">
         <AnimatePresence mode="wait">
           {!submitted ? (
             <motion.form
@@ -139,7 +139,7 @@ export function RSVPSection({ weddingId, groomName, brideName }: RSVPSectionProp
                 <label className="block text-xs uppercase tracking-wider text-[#2C2A29] font-bold mb-3">
                   Bạn sẽ tham dự chứ? *
                 </label>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 sm:gap-4">
                   <button
                     type="button"
                     onClick={() => setAttending(true)}
@@ -172,7 +172,7 @@ export function RSVPSection({ weddingId, groomName, brideName }: RSVPSectionProp
                 <label className="block text-xs uppercase tracking-wider text-[#2C2A29] font-bold mb-2">
                   Khách mời của ai?
                 </label>
-                <div className="grid grid-cols-3 gap-2 sm:gap-3 text-xs sm:text-sm">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 text-xs sm:text-sm">
                   <button
                     type="button"
                     onClick={() => setGuestOf('groom')}

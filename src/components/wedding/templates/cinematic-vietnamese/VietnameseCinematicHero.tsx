@@ -87,9 +87,9 @@ export function VietnameseCinematicHero({
       {/* Top Letterbox Cinema Bar with Traditional Film Slate */}
       <motion.div
         style={{ height: letterboxH }}
-        className="absolute top-0 left-0 right-0 z-30 bg-[#080203]/90 backdrop-blur-md border-b border-[#D4AF37]/20 flex items-center justify-between px-6 sm:px-10 overflow-hidden"
+        className="absolute top-0 left-0 right-0 z-30 bg-[#080203]/90 backdrop-blur-md border-b border-[#D4AF37]/20 flex items-center justify-between gap-2 px-4 sm:px-10 overflow-hidden"
       >
-        <div className="flex items-center gap-3 text-[10px] tracking-[0.3em] font-serif uppercase text-[#D4AF37]">
+        <div className="flex items-center gap-2 sm:gap-3 text-[9px] sm:text-[10px] tracking-[0.15em] sm:tracking-[0.3em] font-serif uppercase text-[#D4AF37] min-w-0">
           <Film className="w-3.5 h-3.5 text-[#D4AF37]" />
           <span className="font-bold">ĐẠI HỶ HOÀNG GIA</span>
           <span className="hidden sm:inline">•</span>
@@ -100,17 +100,19 @@ export function VietnameseCinematicHero({
 
         <button
           onClick={onToggleSound}
-          className="flex items-center gap-2 text-[11px] tracking-wider uppercase text-[#D4AF37] hover:text-white px-3 py-1 rounded-full border border-[#D4AF37]/30 hover:bg-[#D4AF37]/20 transition-all cursor-pointer"
+          className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] tracking-wider uppercase text-[#D4AF37] hover:text-white px-2.5 sm:px-3 py-1 rounded-full border border-[#D4AF37]/30 hover:bg-[#D4AF37]/20 transition-all cursor-pointer shrink-0"
         >
           {isPlaying ? (
             <>
               <Volume2 className="w-3.5 h-3.5 text-[#D4AF37] animate-pulse" />
-              <span>Nhã Khúc: Đang Phát</span>
+              <span className="hidden sm:inline">Nhã Khúc: Đang Phát</span>
+              <span className="sm:hidden">Đang phát</span>
             </>
           ) : (
             <>
               <VolumeX className="w-3.5 h-3.5 text-neutral-400" />
-              <span>Bật Âm Thanh</span>
+              <span className="hidden sm:inline">Bật Âm Thanh</span>
+              <span className="sm:hidden">Bật nhạc</span>
             </>
           )}
         </button>

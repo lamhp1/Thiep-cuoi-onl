@@ -106,7 +106,7 @@ export function VietnameseFairytaleTemplate({
   ];
 
   return (
-    <div className="relative min-h-screen bg-[#FAF5EB] text-[#351E17] font-body selection:bg-[#BA262B]/20 selection:text-[#BA262B]">
+    <div className="relative min-h-screen overflow-x-clip bg-[#FAF5EB] text-[#351E17] font-body selection:bg-[#BA262B]/20 selection:text-[#BA262B]">
       {/* 1. Village Gate Opening Screen (Cổng Làng Cổ Kính) */}
       {!isGateOpened && (
         <FairytaleVillageGateOpening

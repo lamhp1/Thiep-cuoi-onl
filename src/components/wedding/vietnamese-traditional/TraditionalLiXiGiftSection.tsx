@@ -96,28 +96,28 @@ export function TraditionalLiXiGiftSection({
           <TraditionalDivider className="mt-4 mb-8" />
 
           {/* Toggle Lì Xì Nhà Trai / Nhà Gái */}
-          <div className="inline-flex items-center p-1.5 rounded-full bg-white border border-[#D4AF37]/50 shadow-sm gap-1">
+          <div className="inline-flex flex-wrap justify-center items-center p-1.5 rounded-2xl sm:rounded-full bg-white border border-[#D4AF37]/50 shadow-sm gap-1 max-w-full">
             <button
               onClick={() => setActiveTab('groom')}
-              className={`flex items-center gap-2 px-5 py-2 rounded-full text-xs font-serif-title font-bold tracking-wider uppercase transition-all cursor-pointer ${
+              className={`flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 rounded-full text-[11px] sm:text-xs font-serif-title font-bold tracking-wider uppercase transition-all cursor-pointer ${
                 activeTab === 'groom'
                   ? 'bg-gradient-to-r from-[#BA1E28] to-[#8B1119] text-white shadow-md'
                   : 'text-[#735154] hover:text-[#BA1E28]'
               }`}
             >
-              <SongHyGlyph className="w-3.5 h-3.5 text-[#FFD700]" />
+              <SongHyGlyph className="w-3.5 h-3.5 text-[#FFD700] shrink-0" />
               <span>Lì Xì Chú Rể (Nhà Trai)</span>
             </button>
 
             <button
               onClick={() => setActiveTab('bride')}
-              className={`flex items-center gap-2 px-5 py-2 rounded-full text-xs font-serif-title font-bold tracking-wider uppercase transition-all cursor-pointer ${
+              className={`flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 rounded-full text-[11px] sm:text-xs font-serif-title font-bold tracking-wider uppercase transition-all cursor-pointer ${
                 activeTab === 'bride'
                   ? 'bg-gradient-to-r from-[#BA1E28] to-[#8B1119] text-white shadow-md'
                   : 'text-[#735154] hover:text-[#BA1E28]'
               }`}
             >
-              <LotusOrnament className="w-3.5 h-3.5 text-[#FFD700]" />
+              <LotusOrnament className="w-3.5 h-3.5 text-[#FFD700] shrink-0" />
               <span>Lì Xì Cô Dâu (Nhà Gái)</span>
             </button>
           </div>

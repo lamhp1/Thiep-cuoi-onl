@@ -838,10 +838,10 @@ export function RoyalRingVault3DCanvas({
 
       {/* Floating Open Prompt Pill (Positioned safely above bottom controls, leaving 3D scene 100% visible) */}
       {!isOpen && (
-        <div className="absolute bottom-20 sm:bottom-24 inset-x-0 mx-auto flex justify-center pointer-events-none z-30 px-4">
+        <div className="absolute bottom-36 sm:bottom-24 inset-x-0 mx-auto flex justify-center pointer-events-none z-30 px-4">
           <button
             onClick={handleTriggerOpen}
-            className="pointer-events-auto group px-6 py-2.5 rounded-full bg-gradient-to-r from-[#dca389] via-[#f7d6c5] to-[#dca389] text-[#221319] font-serif font-bold text-xs sm:text-sm tracking-wider shadow-[0_0_35px_rgba(229,168,142,0.7)] hover:shadow-[0_0_55px_rgba(255,225,190,0.95)] hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2.5 animate-bounce"
+            className="pointer-events-auto group px-4 sm:px-6 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-[#dca389] via-[#f7d6c5] to-[#dca389] text-[#221319] font-serif font-bold text-[11px] sm:text-sm tracking-wider shadow-[0_0_35px_rgba(229,168,142,0.7)] hover:shadow-[0_0_55px_rgba(255,225,190,0.95)] hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2 sm:gap-2.5 animate-bounce whitespace-nowrap max-w-[92vw]"
           >
             <span className="text-base">💍</span>
             <span>Chạm để Mở Hộp Nhẫn Hoàng Gia</span>
@@ -860,7 +860,7 @@ export function RoyalRingVault3DCanvas({
             <span>Hiện thanh điều khiển 3D</span>
           </button>
         ) : (
-          <div className="pointer-events-auto flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-2xl bg-black/85 border border-[#e5a88e]/35 backdrop-blur-xl shadow-2xl">
+          <div className="pointer-events-auto flex flex-wrap items-center justify-center gap-1 sm:gap-2 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-2xl bg-black/85 border border-[#e5a88e]/35 backdrop-blur-xl shadow-2xl">
             {/* 1. Toggle Open / Close */}
             <button
               onClick={handleTriggerOpen}
@@ -940,7 +940,7 @@ export function RoyalRingVault3DCanvas({
 
         {/* Quiet Hint */}
         {!isControlsCollapsed && (
-          <p className="text-[10px] text-white/50 tracking-wider">
+          <p className="hidden sm:block text-[10px] text-white/50 tracking-wider">
             Mẹo: Kéo xoay 360° để ngắm ánh sáng kim cương • Nhấp đúp vào hộp để mở
           </p>
         )}

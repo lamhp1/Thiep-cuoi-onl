@@ -221,7 +221,7 @@ export function ChateauGrandeurTemplate({
   });
 
   return (
-    <div className="min-h-screen bg-[#FAF8F3] text-[#222523] font-body selection:bg-[#C9A84E]/30 selection:text-[#3E4F42] relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#FAF8F3] text-[#222523] font-body selection:bg-[#C9A84E]/30 selection:text-[#3E4F42] relative overflow-x-clip">
       {/* Floating Music Player */}
       <FloatingMusicPlayer musicUrl={data.musicUrl} />
 
@@ -289,18 +289,18 @@ export function ChateauGrandeurTemplate({
       </AnimatePresence>
 
       {/* Top Royal French Nav */}
-      <header className="sticky top-0 z-40 bg-[#FAF8F3]/90 backdrop-blur-md border-b border-[#C9A84E]/30 px-4 sm:px-8 py-3.5 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <Crown className="w-4 h-4 text-[#C9A84E]" />
-          <span className="font-serif-title text-base sm:text-lg tracking-wider text-[#1E2520] font-bold">
+      <header className="sticky top-0 z-40 bg-[#FAF8F3]/90 backdrop-blur-md border-b border-[#C9A84E]/30 px-4 sm:px-8 py-3.5 flex items-center justify-between gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+          <Crown className="w-4 h-4 text-[#C9A84E] shrink-0" />
+          <span className="font-serif-title text-sm sm:text-lg tracking-wider text-[#1E2520] font-bold truncate">
             {data.groomName} & {data.brideName}
           </span>
         </div>
 
-        <nav className="flex items-center gap-4 sm:gap-6 text-xs font-serif-title tracking-wider text-neutral-600">
-          <a href="#chateau-couple" className="hover:text-[#3E4F42] font-semibold transition-colors">Tân Lang & Tân Nương</a>
-          <a href="#chateau-programme" className="hover:text-[#3E4F42] font-semibold transition-colors">Đại Yến</a>
-          <a href="#chateau-gallery" className="hover:text-[#3E4F42] font-semibold transition-colors">Phòng Tranh</a>
+        <nav className="flex items-center gap-3 sm:gap-6 text-xs font-serif-title tracking-wider text-neutral-600 shrink-0">
+          <a href="#chateau-couple" className="hidden md:inline hover:text-[#3E4F42] font-semibold transition-colors">Tân Lang & Tân Nương</a>
+          <a href="#chateau-programme" className="hidden sm:inline hover:text-[#3E4F42] font-semibold transition-colors">Đại Yến</a>
+          <a href="#chateau-gallery" className="hidden md:inline hover:text-[#3E4F42] font-semibold transition-colors">Phòng Tranh</a>
           <a href="#chateau-rsvp" className="text-[#3E4F42] font-bold hover:underline">Hồi Báo RSVP</a>
           {isOwnerMode && onNavigateToAdmin && (
             <button
@@ -450,7 +450,7 @@ export function ChateauGrandeurTemplate({
           />
         </motion.div>
 
-        <div className="grid grid-cols-2 gap-3 sm:gap-6 md:gap-10 items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-6 md:gap-10 items-stretch">
           {/* Groom Card */}
           <motion.div
             initial={{ opacity: 0, x: -30, y: 20 }}
@@ -458,7 +458,7 @@ export function ChateauGrandeurTemplate({
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             whileHover={{ y: -8 }}
-            className="bg-white border sm:border-2 border-[#C9A84E]/40 rounded-2xl sm:rounded-3xl p-3 sm:p-6 md:p-8 space-y-3 sm:space-y-6 shadow-xl hover:shadow-2xl transition-all flex flex-col justify-between"
+            className="bg-white border sm:border-2 border-[#C9A84E]/40 rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 space-y-4 sm:space-y-6 shadow-xl hover:shadow-2xl transition-all flex flex-col justify-between"
           >
             <div className="flex flex-col sm:flex-row justify-between items-center text-xs gap-1">
               <span className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-[#3E4F42] text-[#FAF8F3] font-serif-title tracking-wider text-[9px] sm:text-[11px] font-semibold whitespace-nowrap">
@@ -468,7 +468,7 @@ export function ChateauGrandeurTemplate({
             </div>
 
             {/* Arched Avatar */}
-            <div className="relative aspect-[3/4] w-24 sm:w-36 md:max-w-xs mx-auto rounded-t-full overflow-hidden border sm:border-2 border-[#C9A84E] shadow-md">
+            <div className="relative aspect-[3/4] w-36 sm:w-36 md:max-w-xs mx-auto rounded-t-full overflow-hidden border sm:border-2 border-[#C9A84E] shadow-md">
               <img
                 src={data.groom.avatar}
                 alt={data.groom.fullName}
@@ -479,10 +479,10 @@ export function ChateauGrandeurTemplate({
 
             <div className="space-y-1.5 sm:space-y-3 text-center flex-1 flex flex-col justify-between">
               <div>
-                <h3 className="font-serif-title text-sm xs:text-base sm:text-2xl md:text-3xl font-bold text-[#1E2520] leading-tight">
+                <h3 className="font-serif-title text-xl sm:text-2xl md:text-3xl font-bold text-[#1E2520] leading-tight">
                   {data.groom.fullName}
                 </h3>
-                <p className="text-[10px] sm:text-xs text-neutral-600 leading-relaxed font-body mt-1 line-clamp-3 sm:line-clamp-none">
+                <p className="text-xs text-neutral-600 leading-relaxed font-body mt-1.5">
                   {data.groom.bio || 'Chàng trai phong độ, điềm đạm và tận tụy, luôn dành cho người bạn đời tình cảm trọn vẹn nhất.'}
                 </p>
               </div>
@@ -540,7 +540,7 @@ export function ChateauGrandeurTemplate({
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             whileHover={{ y: -8 }}
-            className="bg-white border sm:border-2 border-[#C9A84E]/40 rounded-2xl sm:rounded-3xl p-3 sm:p-6 md:p-8 space-y-3 sm:space-y-6 shadow-xl hover:shadow-2xl transition-all flex flex-col justify-between"
+            className="bg-white border sm:border-2 border-[#C9A84E]/40 rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 space-y-4 sm:space-y-6 shadow-xl hover:shadow-2xl transition-all flex flex-col justify-between"
           >
             <div className="flex flex-col sm:flex-row justify-between items-center text-xs gap-1">
               <span className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-[#3E4F42] text-[#FAF8F3] font-serif-title tracking-wider text-[9px] sm:text-[11px] font-semibold whitespace-nowrap">
@@ -550,7 +550,7 @@ export function ChateauGrandeurTemplate({
             </div>
 
             {/* Arched Avatar */}
-            <div className="relative aspect-[3/4] w-24 sm:w-36 md:max-w-xs mx-auto rounded-t-full overflow-hidden border sm:border-2 border-[#C9A84E] shadow-md">
+            <div className="relative aspect-[3/4] w-36 sm:w-36 md:max-w-xs mx-auto rounded-t-full overflow-hidden border sm:border-2 border-[#C9A84E] shadow-md">
               <img
                 src={data.bride.avatar}
                 alt={data.bride.fullName}
@@ -561,10 +561,10 @@ export function ChateauGrandeurTemplate({
 
             <div className="space-y-1.5 sm:space-y-3 text-center flex-1 flex flex-col justify-between">
               <div>
-                <h3 className="font-serif-title text-sm xs:text-base sm:text-2xl md:text-3xl font-bold text-[#1E2520] leading-tight">
+                <h3 className="font-serif-title text-xl sm:text-2xl md:text-3xl font-bold text-[#1E2520] leading-tight">
                   {data.bride.fullName}
                 </h3>
-                <p className="text-[10px] sm:text-xs text-neutral-600 leading-relaxed font-body mt-1 line-clamp-3 sm:line-clamp-none">
+                <p className="text-xs text-neutral-600 leading-relaxed font-body mt-1.5">
                   {data.bride.bio || 'Cô gái dịu dàng, tao nhã với nụ cười rạng rỡ, người tô điểm cho cuộc sống tình yêu thêm ngọt ngào.'}
                 </p>
               </div>

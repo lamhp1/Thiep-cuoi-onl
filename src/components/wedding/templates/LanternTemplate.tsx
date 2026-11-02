@@ -102,7 +102,7 @@ export function LanternTemplate({
   const eventCity = data.events?.[0]?.locationName || 'TP. Huế';
 
   return (
-    <div className="relative min-h-screen bg-[#070B18] text-[#F3EFE6] font-body selection:bg-amber-500/30 selection:text-amber-200 overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#070B18] text-[#F3EFE6] font-body selection:bg-amber-500/30 selection:text-amber-200 overflow-x-clip">
       {/* 1. Opening Ceremony Modal (Thắp Sáng Đèn Lồng) */}
       {!hasEntered && (
         <LanternNightOpening
@@ -215,7 +215,7 @@ export function LanternTemplate({
       {/* 15. Quick Navigation Footer Bar */}
       <footer className="relative border-t border-amber-500/20 bg-neutral-950/90 py-8 px-4 text-center z-20">
         <div className="max-w-xl mx-auto space-y-4">
-          <div className="flex items-center justify-center gap-6 text-xs font-serif uppercase tracking-widest text-amber-300/80">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:gap-6 text-xs font-serif uppercase tracking-widest text-amber-300/80">
             <button
               onClick={() => scrollToSection('couple')}
               className="cursor-pointer hover:text-amber-200 transition-colors"
@@ -282,7 +282,7 @@ export function LanternTemplate({
       {showScrollTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="cursor-pointer fixed bottom-20 right-5 z-40 p-2.5 rounded-full bg-amber-950/80 hover:bg-amber-900 border border-amber-500/40 text-amber-300 shadow-xl backdrop-blur-md transition-all hover:scale-110 active:scale-95"
+          className="cursor-pointer fixed bottom-32 right-3.5 sm:bottom-20 sm:right-5 z-40 p-2.5 rounded-full bg-amber-950/80 hover:bg-amber-900 border border-amber-500/40 text-amber-300 shadow-xl backdrop-blur-md transition-all hover:scale-110 active:scale-95"
           title="Lên đầu trang"
         >
           <ChevronUp className="w-4 h-4" />

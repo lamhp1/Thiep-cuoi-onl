@@ -87,7 +87,7 @@ export function TraditionalEnvelopeOpening({
           initial={{ scale: 0.9, opacity: 0, y: 30 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="relative w-full max-w-[390px] sm:max-w-[420px] aspect-[4/5] perspective-1000 select-none"
+          className="relative w-full max-w-[390px] sm:max-w-[420px] aspect-[3/4.3] sm:aspect-[4/5] perspective-1000 select-none"
         >
           {/* 1. Tấm thiệp bên trong (Inner Card - Kem giấy) */}
           <motion.div
@@ -155,7 +155,7 @@ export function TraditionalEnvelopeOpening({
 
           {/* 2. Thân phong bì đỏ son chính giữa */}
           <div
-            className="relative w-full h-full rounded-2xl bg-gradient-to-b from-[#BA1E28] via-[#A01620] to-[#7F0E17] text-[#FAF6EE] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] border-2 border-[#D4AF37]/50 overflow-hidden z-20 flex flex-col justify-between p-6 sm:p-7"
+            className="relative w-full h-full rounded-2xl bg-gradient-to-b from-[#BA1E28] via-[#A01620] to-[#7F0E17] text-[#FAF6EE] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] border-2 border-[#D4AF37]/50 overflow-hidden z-20 flex flex-col justify-between p-4 sm:p-7"
             style={{
               boxShadow: '0 20px 50px rgba(139, 17, 25, 0.45), inset 0 0 30px rgba(0,0,0,0.35)',
             }}
@@ -182,7 +182,7 @@ export function TraditionalEnvelopeOpening({
               }
               transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
               style={{ transformOrigin: 'top center', transformStyle: 'preserve-3d' }}
-              className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-[#8F111B] to-[#A61C24] border-b-2 border-[#D4AF37]/60 pointer-events-none shadow-md"
+              className="absolute inset-x-0 top-0 h-24 sm:h-36 bg-gradient-to-b from-[#8F111B] to-[#A61C24] border-b-2 border-[#D4AF37]/60 pointer-events-none shadow-md"
             >
               {/* Nắp hình tam giác lượn nhẹ viền vàng */}
               <div className="w-full h-full flex items-center justify-center">
@@ -204,11 +204,11 @@ export function TraditionalEnvelopeOpening({
               │                    │
               └────────────────────┘
             */}
-            <div className="relative z-25 flex flex-col items-center justify-center text-center my-auto space-y-6 pt-10">
+            <div className="relative z-30 flex flex-col items-center justify-center text-center my-auto space-y-3.5 sm:space-y-6 pt-12 sm:pt-10">
               {/* 1. Chữ Hỷ 囍 */}
               <div className="relative">
-                <div className="w-20 h-20 rounded-full bg-gradient-to-b from-[#FAF5EA] to-[#E8DCBF] border-2 border-[#D4AF37] flex items-center justify-center shadow-lg mx-auto">
-                  <SongHyGlyph className="w-12 h-12 text-[#BA1E28]" glowing={false} />
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-b from-[#FAF5EA] to-[#E8DCBF] border-2 border-[#D4AF37] flex items-center justify-center shadow-lg mx-auto">
+                  <SongHyGlyph className="w-9 h-9 sm:w-12 sm:h-12 text-[#BA1E28]" glowing={false} />
                 </div>
               </div>
 

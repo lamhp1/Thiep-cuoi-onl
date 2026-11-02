@@ -39,14 +39,14 @@ export function TraditionalCoupleSection({ groom, bride }: TraditionalCoupleSect
         </div>
 
         {/* Dual Cards: Groom & Bride */}
-        <div className="grid grid-cols-2 gap-3 sm:gap-8 md:gap-12 items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-stretch">
           {/* 1. Chú Rể (Tân Lang) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.6 }}
-            className="relative bg-[#FFFDF9] rounded-2xl sm:rounded-3xl p-3 sm:p-6 md:p-8 border border-[#D4AF37]/50 shadow-[0_12px_35px_rgba(186,30,40,0.06)] flex flex-col items-center text-center group"
+            className="relative bg-[#FFFDF9] rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 border border-[#D4AF37]/50 shadow-[0_12px_35px_rgba(186,30,40,0.06)] flex flex-col items-center text-center group"
           >
             <PaperFrameCorner position="top-left" className="top-1 left-1 sm:top-2 sm:left-2 w-4 h-4 sm:w-6 sm:h-6 text-[#D4AF37]" />
             <PaperFrameCorner position="top-right" className="top-1 right-1 sm:top-2 sm:right-2 w-4 h-4 sm:w-6 sm:h-6 text-[#D4AF37]" />
@@ -54,7 +54,7 @@ export function TraditionalCoupleSection({ groom, bride }: TraditionalCoupleSect
             <PaperFrameCorner position="bottom-right" className="bottom-1 right-1 sm:bottom-2 sm:right-2 w-4 h-4 sm:w-6 sm:h-6 text-[#D4AF37]" />
 
             {/* Avatar Frame Giấy Mỹ Thuật */}
-            <div className="relative w-20 h-28 xs:w-24 xs:h-32 sm:w-44 sm:h-56 md:w-48 md:h-60 rounded-xl sm:rounded-2xl p-1 sm:p-2 bg-[#FAF5EA] border border-[#D4AF37]/40 shadow-sm mb-2.5 sm:mb-5 overflow-hidden">
+            <div className="relative w-36 h-48 sm:w-44 sm:h-56 md:w-48 md:h-60 rounded-xl sm:rounded-2xl p-1.5 sm:p-2 bg-[#FAF5EA] border border-[#D4AF37]/40 shadow-sm mb-4 sm:mb-5 overflow-hidden">
               <img
                 src={groom.avatar || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80'}
                 alt={groom.fullName}
@@ -69,7 +69,7 @@ export function TraditionalCoupleSection({ groom, bride }: TraditionalCoupleSect
               <span className="inline-block px-2 sm:px-3 py-0.5 rounded-full bg-[#BA1E28] text-white text-[9px] sm:text-[11px] font-bold font-serif-title uppercase tracking-wider sm:tracking-widest whitespace-nowrap">
                 Chú Rể • Tân Lang
               </span>
-              <h3 className="font-serif-title text-sm xs:text-base sm:text-2xl md:text-3xl font-bold text-[#8B1119] leading-tight">
+              <h3 className="font-serif-title text-xl sm:text-2xl md:text-3xl font-bold text-[#8B1119] leading-tight">
                 {groom.fullName}
               </h3>
             </div>
@@ -86,7 +86,7 @@ export function TraditionalCoupleSection({ groom, bride }: TraditionalCoupleSect
             )}
 
             {/* Bio */}
-            <p className="font-body text-[10.5px] sm:text-xs md:text-sm text-[#614749] leading-relaxed line-clamp-3 flex-1">
+            <p className="font-body text-xs md:text-sm text-[#614749] leading-relaxed flex-1">
               {groom.bio}
             </p>
           </motion.div>
@@ -97,7 +97,7 @@ export function TraditionalCoupleSection({ groom, bride }: TraditionalCoupleSect
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative bg-[#FFFDF9] rounded-2xl sm:rounded-3xl p-3 sm:p-6 md:p-8 border border-[#D4AF37]/50 shadow-[0_12px_35px_rgba(186,30,40,0.06)] flex flex-col items-center text-center group"
+            className="relative bg-[#FFFDF9] rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 border border-[#D4AF37]/50 shadow-[0_12px_35px_rgba(186,30,40,0.06)] flex flex-col items-center text-center group"
           >
             <PaperFrameCorner position="top-left" className="top-1 left-1 sm:top-2 sm:left-2 w-4 h-4 sm:w-6 sm:h-6 text-[#D4AF37]" />
             <PaperFrameCorner position="top-right" className="top-1 right-1 sm:top-2 sm:right-2 w-4 h-4 sm:w-6 sm:h-6 text-[#D4AF37]" />
@@ -105,7 +105,7 @@ export function TraditionalCoupleSection({ groom, bride }: TraditionalCoupleSect
             <PaperFrameCorner position="bottom-right" className="bottom-1 right-1 sm:bottom-2 sm:right-2 w-4 h-4 sm:w-6 sm:h-6 text-[#D4AF37]" />
 
             {/* Avatar Frame Giấy Mỹ Thuật */}
-            <div className="relative w-20 h-28 xs:w-24 xs:h-32 sm:w-44 sm:h-56 md:w-48 md:h-60 rounded-xl sm:rounded-2xl p-1 sm:p-2 bg-[#FAF5EA] border border-[#D4AF37]/40 shadow-sm mb-2.5 sm:mb-5 overflow-hidden">
+            <div className="relative w-36 h-48 sm:w-44 sm:h-56 md:w-48 md:h-60 rounded-xl sm:rounded-2xl p-1.5 sm:p-2 bg-[#FAF5EA] border border-[#D4AF37]/40 shadow-sm mb-4 sm:mb-5 overflow-hidden">
               <img
                 src={bride.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80'}
                 alt={bride.fullName}
@@ -120,7 +120,7 @@ export function TraditionalCoupleSection({ groom, bride }: TraditionalCoupleSect
               <span className="inline-block px-2 sm:px-3 py-0.5 rounded-full bg-[#BA1E28] text-white text-[9px] sm:text-[11px] font-bold font-serif-title uppercase tracking-wider sm:tracking-widest whitespace-nowrap">
                 Cô Dâu • Tân Nương
               </span>
-              <h3 className="font-serif-title text-sm xs:text-base sm:text-2xl md:text-3xl font-bold text-[#8B1119] leading-tight">
+              <h3 className="font-serif-title text-xl sm:text-2xl md:text-3xl font-bold text-[#8B1119] leading-tight">
                 {bride.fullName}
               </h3>
             </div>
@@ -137,7 +137,7 @@ export function TraditionalCoupleSection({ groom, bride }: TraditionalCoupleSect
             )}
 
             {/* Bio */}
-            <p className="font-body text-[10.5px] sm:text-xs md:text-sm text-[#614749] leading-relaxed line-clamp-3 flex-1">
+            <p className="font-body text-xs md:text-sm text-[#614749] leading-relaxed flex-1">
               {bride.bio}
             </p>
           </motion.div>

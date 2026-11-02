@@ -35,7 +35,7 @@ export function CyberpunkHologramTemplate({
   });
 
   return (
-    <div className="relative min-h-screen bg-[#050714] text-slate-100 font-sans selection:bg-cyan-500 selection:text-black overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#050714] text-slate-100 font-sans selection:bg-cyan-500 selection:text-black overflow-x-clip">
       {/* Laser Scroll Progress Indicator */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500 z-[100] origin-left shadow-[0_0_20px_#00F0FF]"
@@ -44,7 +44,7 @@ export function CyberpunkHologramTemplate({
 
       {/* Admin Floating Shortcut Bar if owner mode */}
       {isOwnerMode && onNavigateToAdmin && (
-        <div className="fixed top-4 right-4 z-50 bg-[#0B1026]/90 backdrop-blur-md border border-cyan-500/40 p-2 rounded-2xl shadow-[0_0_20px_rgba(0,240,255,0.3)] flex items-center space-x-2">
+        <div className="fixed bottom-18 right-3.5 sm:top-4 sm:bottom-auto sm:right-4 z-50 bg-[#0B1026]/90 backdrop-blur-md border border-cyan-500/40 p-1.5 sm:p-2 rounded-2xl shadow-[0_0_20px_rgba(0,240,255,0.3)] flex items-center space-x-2">
           <button
             onClick={onNavigateToAdmin}
             className="px-3 py-1.5 rounded-xl bg-cyan-500/20 text-cyan-300 font-mono text-xs border border-cyan-400/40 hover:bg-cyan-500/30 transition-colors"

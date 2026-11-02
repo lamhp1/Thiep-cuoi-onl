@@ -80,7 +80,7 @@ export function CinematicFinalScene({
         </div>
 
         {/* Cinematic Film Frame Bar */}
-        <div className="absolute top-6 inset-x-6 sm:inset-x-12 z-20 flex items-center justify-between border-b border-white/10 pb-3 text-[10px] font-mono tracking-[0.3em] uppercase text-neutral-400">
+        <div className="absolute top-6 inset-x-4 sm:inset-x-12 z-20 flex items-center justify-between border-b border-white/10 pb-3 text-[9px] sm:text-[10px] font-mono tracking-[0.14em] sm:tracking-[0.3em] uppercase text-neutral-400">
           <span className="flex items-center gap-2">
             <Film className="w-3.5 h-3.5 text-[#E6C687]" />
             FINAL SCENE • EPILOGUE
@@ -114,7 +114,7 @@ export function CinematicFinalScene({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1.0, delay: 0.2 }}
-              className="text-3xl sm:text-5xl md:text-7xl font-light tracking-[0.25em] text-neutral-200"
+              className="text-2xl sm:text-5xl md:text-7xl font-light tracking-[0.15em] sm:tracking-[0.25em] text-neutral-200"
             >
               AND THEY LIVED
             </motion.h2>
@@ -124,7 +124,7 @@ export function CinematicFinalScene({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1.0, delay: 0.6 }}
-              className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-[0.28em] text-[#E6C687] drop-shadow-[0_4px_30px_rgba(230,198,135,0.5)]"
+              className="text-2xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-[0.14em] sm:tracking-[0.28em] text-[#E6C687] drop-shadow-[0_4px_30px_rgba(230,198,135,0.5)]"
             >
               HAPPILY EVER AFTER.
             </motion.h2>
@@ -138,7 +138,7 @@ export function CinematicFinalScene({
             transition={{ duration: 1.2, delay: 1.2 }}
             className="mt-8 pt-6 border-t border-white/20 w-full max-w-md flex flex-col items-center"
           >
-            <p className="font-serif-title text-2xl sm:text-3xl md:text-4xl tracking-[0.4em] font-light text-white">
+            <p className="font-serif-title text-xl sm:text-3xl md:text-4xl tracking-[0.25em] sm:tracking-[0.4em] font-light text-white">
               20 • 12 • 2026
             </p>
             <p className="mt-2 font-mono text-[11px] tracking-[0.3em] uppercase text-[#E6C687]">

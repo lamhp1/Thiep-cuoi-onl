@@ -159,7 +159,7 @@ export function VietnameseModernLuxuryTemplate({
   });
 
   return (
-    <div className="min-h-screen bg-[#F8F4EC] text-[#18181A] font-body relative selection:bg-[#63121D]/20 selection:text-[#63121D] overflow-x-hidden">
+    <div className="min-h-screen bg-[#F8F4EC] text-[#18181A] font-body relative selection:bg-[#63121D]/20 selection:text-[#63121D] overflow-x-clip">
       {/* 1. Opening Luxury Envelope Curtain */}
       {!isEnvelopeOpened && (
         <VietnameseModernEnvelope
@@ -175,7 +175,7 @@ export function VietnameseModernLuxuryTemplate({
       <LotusPetalsFalling />
 
       {/* Floating Replay Envelope Button */}
-      <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-2.5">
+      <div className="fixed bottom-18 right-3.5 sm:bottom-6 sm:right-6 z-40 flex flex-col gap-2.5">
         <button
           onClick={() => setIsEnvelopeOpened(false)}
           className="w-11 h-11 rounded-full bg-[#63121D] text-[#D8BE87] border border-[#D8BE87]/60 shadow-xl flex items-center justify-center hover:scale-105 transition-all cursor-pointer"
@@ -462,7 +462,7 @@ export function VietnameseModernLuxuryTemplate({
           </div>
 
           {/* Couple Cards Grid with scroll animation */}
-          <div className="grid grid-cols-2 gap-3 sm:gap-8 md:gap-12 items-stretch">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-stretch">
             {/* Groom Card */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -470,10 +470,10 @@ export function VietnameseModernLuxuryTemplate({
               viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.6 }}
               whileHover={{ y: -5 }}
-              className="bg-[#FFFFFF] rounded-2xl sm:rounded-3xl p-3 sm:p-6 md:p-8 border sm:border-2 border-[#D8BE87] shadow-xl relative overflow-hidden flex flex-col"
+              className="bg-[#FFFFFF] rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 border sm:border-2 border-[#D8BE87] shadow-xl relative overflow-hidden flex flex-col"
             >
               <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 mb-3 sm:mb-6 text-center sm:text-left">
-                <div className="w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-xl sm:rounded-2xl overflow-hidden border sm:border-2 border-[#D8BE87] shadow-md shrink-0 bg-[#FAF7F2]">
+                <div className="w-24 h-24 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-xl sm:rounded-2xl overflow-hidden border sm:border-2 border-[#D8BE87] shadow-md shrink-0 bg-[#FAF7F2]">
                   <ProgressiveLuxuryImage
                     src={data.groom?.avatar || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80'}
                     alt={`Chú rể ${data.groomName || 'chú rể'}`}
@@ -484,7 +484,7 @@ export function VietnameseModernLuxuryTemplate({
                   <span className="text-[8.5px] sm:text-[10px] uppercase font-bold tracking-wider sm:tracking-[0.25em] text-[#8C8275] block whitespace-nowrap">
                     Nhà Trai • Chú Rể
                   </span>
-                  <h3 className="font-serif-title text-sm xs:text-base sm:text-2xl font-bold text-[#18181A] mt-0.5 leading-tight">
+                  <h3 className="font-serif-title text-xl sm:text-2xl font-bold text-[#18181A] mt-0.5 leading-tight">
                     {data.groom?.fullName || data.groomName || 'Chú Rể'}
                   </h3>
                   <span className="text-[10px] sm:text-xs text-[#63121D] font-medium block break-words leading-tight">
@@ -506,7 +506,7 @@ export function VietnameseModernLuxuryTemplate({
                 </p>
               </div>
 
-              <p className="font-body text-[10.5px] sm:text-xs md:text-sm text-[#5A554E] leading-relaxed italic break-words flex-1">
+              <p className="font-body text-xs md:text-sm text-[#5A554E] leading-relaxed italic break-words flex-1">
                 "{data.groom?.bio || `Người luôn kiên nhẫn lắng nghe và luôn mang lại nụ cười bình yên cho ${data.brideName || data.bride?.name || 'người thương'} trong mọi khoảnh khắc.`}"
               </p>
             </motion.div>
@@ -518,10 +518,10 @@ export function VietnameseModernLuxuryTemplate({
               viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               whileHover={{ y: -5 }}
-              className="bg-[#FFFFFF] rounded-2xl sm:rounded-3xl p-3 sm:p-6 md:p-8 border sm:border-2 border-[#D8BE87] shadow-xl relative overflow-hidden flex flex-col"
+              className="bg-[#FFFFFF] rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 border sm:border-2 border-[#D8BE87] shadow-xl relative overflow-hidden flex flex-col"
             >
               <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 mb-3 sm:mb-6 text-center sm:text-left">
-                <div className="w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-xl sm:rounded-2xl overflow-hidden border sm:border-2 border-[#D8BE87] shadow-md shrink-0 bg-[#FAF7F2]">
+                <div className="w-24 h-24 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-xl sm:rounded-2xl overflow-hidden border sm:border-2 border-[#D8BE87] shadow-md shrink-0 bg-[#FAF7F2]">
                   <ProgressiveLuxuryImage
                     src={data.bride?.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80'}
                     alt={`Cô dâu ${data.brideName || 'cô dâu'}`}
@@ -532,7 +532,7 @@ export function VietnameseModernLuxuryTemplate({
                   <span className="text-[8.5px] sm:text-[10px] uppercase font-bold tracking-wider sm:tracking-[0.25em] text-[#63121D] block whitespace-nowrap">
                     Nhà Gái • Cô Dâu
                   </span>
-                  <h3 className="font-serif-title text-sm xs:text-base sm:text-2xl font-bold text-[#63121D] mt-0.5 leading-tight">
+                  <h3 className="font-serif-title text-xl sm:text-2xl font-bold text-[#63121D] mt-0.5 leading-tight">
                     {data.bride?.fullName || data.brideName || 'Cô Dâu'}
                   </h3>
                   <span className="text-[10px] sm:text-xs text-[#18181A] font-medium block break-words leading-tight">
@@ -554,7 +554,7 @@ export function VietnameseModernLuxuryTemplate({
                 </p>
               </div>
 
-              <p className="font-body text-[10.5px] sm:text-xs md:text-sm text-[#5A554E] leading-relaxed italic break-words flex-1">
+              <p className="font-body text-xs md:text-sm text-[#5A554E] leading-relaxed italic break-words flex-1">
                 "{data.bride?.bio || 'Tâm hồn mơ mộng và ấm áp. Thích làm bánh, cắm hoa và cùng Minh Anh khám phá những miền đất mới.'}"
               </p>
             </motion.div>

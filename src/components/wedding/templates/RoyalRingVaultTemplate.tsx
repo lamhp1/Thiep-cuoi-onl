@@ -256,7 +256,7 @@ export function RoyalRingVaultTemplate({
   }, [data.gallery, galleryFilter]);
 
   return (
-    <div className="min-h-screen bg-[#0B090E] text-[#F5EFE6] font-sans selection:bg-[#E8B498]/30 selection:text-white relative overflow-x-hidden pb-32">
+    <div className="min-h-screen bg-[#0B090E] text-[#F5EFE6] font-sans selection:bg-[#E8B498]/30 selection:text-white relative overflow-x-clip pb-32">
       {/* 1. Ambient Gold Stardust Embers Canvas Effect */}
       <RoyalGoldParticlesCanvas />
 

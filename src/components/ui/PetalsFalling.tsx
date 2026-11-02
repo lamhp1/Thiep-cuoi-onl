@@ -114,7 +114,7 @@ export function PetalsFalling() {
         onClick={() => setIsEnabled(!isEnabled)}
         title={isEnabled ? 'Tắt hiệu ứng cánh hoa' : 'Bật hiệu ứng cánh hoa'}
         aria-label="Chuyển đổi cánh hoa rơi"
-        className="fixed bottom-24 left-6 z-40 p-2.5 rounded-full bg-white/85 hover:bg-white text-[#D4AF37] border border-[#D4AF37]/30 shadow-md backdrop-blur-md transition-all hover:scale-105 active:scale-95"
+        className="fixed bottom-5 left-4 sm:bottom-24 sm:left-6 z-40 p-2.5 rounded-full bg-white/85 hover:bg-white text-[#D4AF37] border border-[#D4AF37]/30 shadow-md backdrop-blur-md transition-all hover:scale-105 active:scale-95"
       >
         <Sparkles className={`w-4 h-4 ${isEnabled ? 'opacity-100' : 'opacity-40'}`} />
       </button>

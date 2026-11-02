@@ -27,7 +27,7 @@ export function FuturisticAudioBar({
   ];
 
   return (
-    <div className="fixed bottom-5 right-4 sm:right-8 z-50 flex flex-col items-end gap-2 font-body select-none">
+    <div className="fixed bottom-18 right-3.5 sm:bottom-5 sm:right-8 z-50 flex flex-col items-end gap-2 font-body select-none">
       {/* Expanded Quick Navigation Menu */}
       {isNavOpen && (
         <div className="bg-[#090E26]/95 border border-[#00F0FF]/40 rounded-2xl p-3 shadow-[0_0_30px_rgba(0,240,255,0.3)] backdrop-blur-xl mb-2 w-52 space-y-1 text-xs font-mono animate-fadeIn">

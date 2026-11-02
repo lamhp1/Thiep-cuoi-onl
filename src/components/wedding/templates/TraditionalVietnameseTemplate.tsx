@@ -52,7 +52,7 @@ export function TraditionalVietnameseTemplate({
   ];
 
   return (
-    <div className="template-vietnamese-traditional relative min-h-screen bg-[#FAF6EE] text-[#3D1A1E] font-body selection:bg-[#BA1E28]/20 selection:text-[#8B1119]">
+    <div className="template-vietnamese-traditional relative min-h-screen overflow-x-clip bg-[#FAF6EE] text-[#3D1A1E] font-body selection:bg-[#BA1E28]/20 selection:text-[#8B1119]">
       {/* 1. Light Paper Texture Background (Background có texture giấy nhẹ) */}
       <PaperTextureBackground />
 

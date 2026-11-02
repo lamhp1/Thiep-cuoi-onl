@@ -29,7 +29,7 @@ export function CoupleSection({ groom, bride }: CoupleSectionProps) {
       </motion.div>
 
       {/* Profiles Grid */}
-      <div className="grid grid-cols-2 gap-3 sm:gap-10 md:gap-16 lg:gap-24 relative items-stretch">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 md:gap-16 lg:gap-24 relative items-stretch">
         {/* Center Intertwined Heart Badge for Desktop */}
         <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-[#FDFBF7] border border-[#D4AF37]/40 items-center justify-center text-[#D4AF37] shadow-lg">
           <Heart className="w-5 h-5 fill-current" />
@@ -41,11 +41,11 @@ export function CoupleSection({ groom, bride }: CoupleSectionProps) {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col items-center p-3.5 sm:p-7 md:p-10 rounded-2xl sm:rounded-3xl bg-white/70 backdrop-blur-sm border border-[#D4AF37]/25 shadow-md hover:shadow-xl transition-all text-center"
+          className="flex flex-col items-center p-6 sm:p-7 md:p-10 rounded-2xl sm:rounded-3xl bg-white/70 backdrop-blur-sm border border-[#D4AF37]/25 shadow-md hover:shadow-xl transition-all text-center"
         >
           {/* Avatar with luxury golden double ring */}
           <div className="relative mb-3 sm:mb-6">
-            <div className="w-20 h-20 xs:w-24 xs:h-24 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-52 lg:h-52 rounded-full p-1 sm:p-1.5 border-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors">
+            <div className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-52 lg:h-52 rounded-full p-1.5 border-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors">
               <img
                 src={groom.avatar}
                 alt={groom.fullName}
@@ -58,7 +58,7 @@ export function CoupleSection({ groom, bride }: CoupleSectionProps) {
             </span>
           </div>
 
-          <h3 className="font-serif-title text-sm xs:text-base sm:text-2xl md:text-3xl font-medium text-[#2C2A29] leading-tight">
+          <h3 className="font-serif-title text-xl sm:text-2xl md:text-3xl font-medium text-[#2C2A29] leading-tight">
             {groom.fullName}
           </h3>
 
@@ -69,7 +69,7 @@ export function CoupleSection({ groom, bride }: CoupleSectionProps) {
             </div>
           )}
 
-          <p className="mt-2 sm:mt-4 text-[10.5px] sm:text-sm font-body text-neutral-600 leading-relaxed max-w-sm flex-1 line-clamp-4 sm:line-clamp-none">
+          <p className="mt-3 sm:mt-4 text-xs sm:text-sm font-body text-neutral-600 leading-relaxed max-w-sm flex-1">
             {groom.bio}
           </p>
 
@@ -115,11 +115,11 @@ export function CoupleSection({ groom, bride }: CoupleSectionProps) {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col items-center p-3.5 sm:p-7 md:p-10 rounded-2xl sm:rounded-3xl bg-white/70 backdrop-blur-sm border border-[#D4AF37]/25 shadow-md hover:shadow-xl transition-all text-center"
+          className="flex flex-col items-center p-6 sm:p-7 md:p-10 rounded-2xl sm:rounded-3xl bg-white/70 backdrop-blur-sm border border-[#D4AF37]/25 shadow-md hover:shadow-xl transition-all text-center"
         >
           {/* Avatar */}
           <div className="relative mb-3 sm:mb-6">
-            <div className="w-20 h-20 xs:w-24 xs:h-24 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-52 lg:h-52 rounded-full p-1 sm:p-1.5 border-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors">
+            <div className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-52 lg:h-52 rounded-full p-1.5 border-2 border-[#D4AF37]/60 group-hover:border-[#D4AF37] transition-colors">
               <img
                 src={bride.avatar}
                 alt={bride.fullName}
@@ -132,7 +132,7 @@ export function CoupleSection({ groom, bride }: CoupleSectionProps) {
             </span>
           </div>
 
-          <h3 className="font-serif-title text-sm xs:text-base sm:text-2xl md:text-3xl font-medium text-[#2C2A29] leading-tight">
+          <h3 className="font-serif-title text-xl sm:text-2xl md:text-3xl font-medium text-[#2C2A29] leading-tight">
             {bride.fullName}
           </h3>
 
@@ -143,7 +143,7 @@ export function CoupleSection({ groom, bride }: CoupleSectionProps) {
             </div>
           )}
 
-          <p className="mt-2 sm:mt-4 text-[10.5px] sm:text-sm font-body text-neutral-600 leading-relaxed max-w-sm flex-1 line-clamp-4 sm:line-clamp-none">
+          <p className="mt-3 sm:mt-4 text-xs sm:text-sm font-body text-neutral-600 leading-relaxed max-w-sm flex-1">
             {bride.bio}
           </p>
 

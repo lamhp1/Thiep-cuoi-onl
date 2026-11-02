@@ -62,14 +62,14 @@ export function FloralCoupleSection({ groom, bride, romanticQuote }: FloralCoupl
         </motion.div>
 
         {/* Couple Cards Grid */}
-        <div className="mt-10 sm:mt-14 grid grid-cols-2 gap-2.5 sm:gap-6 md:gap-8 lg:gap-14 max-w-4xl mx-auto items-stretch">
+        <div className="mt-10 sm:mt-14 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-6 md:gap-8 lg:gap-14 max-w-4xl mx-auto items-stretch">
           {/* Groom Card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="group relative bg-white/90 backdrop-blur-xs rounded-2xl sm:rounded-3xl p-3 sm:p-6 md:p-8 border border-[#F2DCDD] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center space-y-2.5 sm:space-y-4 md:space-y-5"
+            className="group relative bg-white/90 backdrop-blur-xs rounded-2xl sm:rounded-3xl p-6 sm:p-6 md:p-8 border border-[#F2DCDD] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center space-y-3.5 sm:space-y-4 md:space-y-5"
           >
             {/* Fine gold corner brackets */}
             <div className="absolute top-1.5 left-1.5 sm:top-3 sm:left-3 w-2 h-2 sm:w-3 sm:h-3 border-t border-l border-[#D4AF37]/50" />
@@ -85,7 +85,7 @@ export function FloralCoupleSection({ groom, bride, romanticQuote }: FloralCoupl
               transition={{ duration: 0.8 }}
               className="relative p-1 sm:p-1.5 md:p-2 rounded-full bg-gradient-to-tr from-[#FCE4EC] via-white to-[#F9EFE7] border border-[#D4AF37]/40 shadow-md"
             >
-              <div className="w-20 h-20 xs:w-24 xs:h-24 sm:w-36 sm:h-36 md:w-44 md:h-44 rounded-full overflow-hidden">
+              <div className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 rounded-full overflow-hidden">
                 <img
                   src={groom.avatar || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80'}
                   alt={groom.fullName}
@@ -100,7 +100,7 @@ export function FloralCoupleSection({ groom, bride, romanticQuote }: FloralCoupl
               <span className="text-[9px] sm:text-[11px] font-semibold tracking-[0.15em] sm:tracking-[0.2em] text-[#C9A86A] uppercase font-body">
                 CHÚ RỂ
               </span>
-              <h3 className="font-serif-title text-sm xs:text-base sm:text-2xl md:text-3xl text-[#3E2E31] font-medium leading-tight">
+              <h3 className="font-serif-title text-xl sm:text-2xl md:text-3xl text-[#3E2E31] font-medium leading-tight">
                 {groom.fullName}
               </h3>
             </div>
@@ -115,7 +115,7 @@ export function FloralCoupleSection({ groom, bride, romanticQuote }: FloralCoupl
             )}
 
             {/* Bio */}
-            <p className="text-[10.5px] sm:text-xs md:text-sm text-[#7A696B] leading-relaxed font-body line-clamp-4 sm:line-clamp-none flex-1">
+            <p className="text-xs md:text-sm text-[#7A696B] leading-relaxed font-body flex-1">
               {groom.bio}
             </p>
 
@@ -160,7 +160,7 @@ export function FloralCoupleSection({ groom, bride, romanticQuote }: FloralCoupl
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="group relative bg-white/90 backdrop-blur-xs rounded-2xl sm:rounded-3xl p-3 sm:p-6 md:p-8 border border-[#F2DCDD] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center space-y-2.5 sm:space-y-4 md:space-y-5"
+            className="group relative bg-white/90 backdrop-blur-xs rounded-2xl sm:rounded-3xl p-6 sm:p-6 md:p-8 border border-[#F2DCDD] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center space-y-3.5 sm:space-y-4 md:space-y-5"
           >
             {/* Fine gold corner brackets */}
             <div className="absolute top-1.5 left-1.5 sm:top-3 sm:left-3 w-2 h-2 sm:w-3 sm:h-3 border-t border-l border-[#D4AF37]/50" />
@@ -176,7 +176,7 @@ export function FloralCoupleSection({ groom, bride, romanticQuote }: FloralCoupl
               transition={{ duration: 0.8 }}
               className="relative p-1 sm:p-1.5 md:p-2 rounded-full bg-gradient-to-tr from-[#FCE4EC] via-white to-[#F9EFE7] border border-[#D4AF37]/40 shadow-md"
             >
-              <div className="w-20 h-20 xs:w-24 xs:h-24 sm:w-36 sm:h-36 md:w-44 md:h-44 rounded-full overflow-hidden">
+              <div className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 rounded-full overflow-hidden">
                 <img
                   src={bride.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80'}
                   alt={bride.fullName}
@@ -191,7 +191,7 @@ export function FloralCoupleSection({ groom, bride, romanticQuote }: FloralCoupl
               <span className="text-[9px] sm:text-[11px] font-semibold tracking-[0.15em] sm:tracking-[0.2em] text-[#C9A86A] uppercase font-body">
                 CÔ DÂU
               </span>
-              <h3 className="font-serif-title text-sm xs:text-base sm:text-2xl md:text-3xl text-[#3E2E31] font-medium leading-tight">
+              <h3 className="font-serif-title text-xl sm:text-2xl md:text-3xl text-[#3E2E31] font-medium leading-tight">
                 {bride.fullName}
               </h3>
             </div>
@@ -206,7 +206,7 @@ export function FloralCoupleSection({ groom, bride, romanticQuote }: FloralCoupl
             )}
 
             {/* Bio */}
-            <p className="text-[10.5px] sm:text-xs md:text-sm text-[#7A696B] leading-relaxed font-body line-clamp-4 sm:line-clamp-none flex-1">
+            <p className="text-xs md:text-sm text-[#7A696B] leading-relaxed font-body flex-1">
               {bride.bio}
             </p>
 

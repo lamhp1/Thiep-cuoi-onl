@@ -686,7 +686,7 @@ export function WeddingPage({
   }
 
   return (
-    <div className={`relative min-h-screen ${currentTheme.bgClass} ${currentTheme.textColor} transition-colors duration-500`}>
+    <div className={`relative min-h-screen overflow-x-clip ${currentTheme.bgClass} ${currentTheme.textColor} transition-colors duration-500`}>
       {/* 1. Envelope Opening Screen on initial visit */}
       {!isCurtainOpened && (
         <EnvelopeCurtain

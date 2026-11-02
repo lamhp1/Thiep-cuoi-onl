@@ -54,7 +54,7 @@ export function LoveGameHUD({
       )}
 
       {/* Floating HUD Container (Top Right / Sticky Dock) */}
-      <div className="fixed top-4 right-4 z-50 flex flex-col items-end gap-2">
+      <div className="fixed top-16 sm:top-4 right-3 sm:right-4 z-50 flex flex-col items-end gap-2">
         {/* Main Love Points Gauge Button */}
         <button
           type="button"
@@ -196,7 +196,7 @@ export function LoveGameHUD({
       </div>
 
       {/* Floating Bottom Quick Quest Bar (Mobile & Desktop) */}
-      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 max-w-xl w-[96%] bg-[#151227]/95 border border-white/15 rounded-full px-2.5 py-2 shadow-2xl backdrop-blur-xl flex items-center justify-between gap-1 text-white">
+      <div className="fixed bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 z-40 max-w-xl w-[96%] bg-[#151227]/95 border border-white/15 rounded-full px-2 sm:px-2.5 py-1.5 sm:py-2 shadow-2xl backdrop-blur-xl flex items-center justify-between gap-0.5 sm:gap-1 text-white">
         {quests.map((q) => {
           const isDone = completedQuests.has(q.id);
           const IconComp = q.icon;

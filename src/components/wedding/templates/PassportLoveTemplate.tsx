@@ -130,7 +130,7 @@ export function PassportLoveTemplate({
   };
 
   return (
-    <div className="template-passport-love relative min-h-screen bg-[#F5EEDF] text-[#41372F] font-sans selection:bg-[#651F2A]/20 selection:text-[#651F2A]">
+    <div className="template-passport-love relative min-h-screen overflow-x-clip bg-[#F5EEDF] text-[#41372F] font-sans selection:bg-[#651F2A]/20 selection:text-[#651F2A]">
       {/* 1. Subtle Paper Texture Background */}
       <PassportPaperTexture />
 

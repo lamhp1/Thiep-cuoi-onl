@@ -222,7 +222,7 @@ export function CelestialRoyaleTemplate({
   });
 
   return (
-    <div className="min-h-screen bg-[#050814] text-[#FAF6EE] font-body selection:bg-[#E5C378]/30 selection:text-[#E5C378] relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#050814] text-[#FAF6EE] font-body selection:bg-[#E5C378]/30 selection:text-[#E5C378] relative overflow-x-clip">
       {/* 0. Fullscreen Living Cosmos Starfield & Nebula Universe */}
       <CelestialStarfield
         enableShootingStars={true}
@@ -481,7 +481,7 @@ export function CelestialRoyaleTemplate({
           />
         </motion.div>
 
-        <div className="grid grid-cols-2 gap-3 sm:gap-6 md:gap-10 items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-6 md:gap-10 items-stretch">
           {/* Groom: Solar Halo */}
           <motion.div
             initial={{ opacity: 0, x: -30, y: 20 }}
@@ -489,7 +489,7 @@ export function CelestialRoyaleTemplate({
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             whileHover={{ y: -8 }}
-            className="bg-[#0A1128]/90 border border-[#E5C378]/30 rounded-2xl sm:rounded-3xl p-3 sm:p-6 md:p-8 space-y-3 sm:space-y-6 shadow-[0_0_35px_rgba(229,195,120,0.12)] hover:border-[#E5C378] hover:shadow-[0_0_40px_rgba(229,195,120,0.25)] transition-all group backdrop-blur-sm flex flex-col justify-between"
+            className="bg-[#0A1128]/90 border border-[#E5C378]/30 rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 space-y-4 sm:space-y-6 shadow-[0_0_35px_rgba(229,195,120,0.12)] hover:border-[#E5C378] hover:shadow-[0_0_40px_rgba(229,195,120,0.25)] transition-all group backdrop-blur-sm flex flex-col justify-between"
           >
             <div className="flex flex-col sm:flex-row justify-between items-center text-xs gap-1">
               <div className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-[#E5C378]/15 border border-[#E5C378]/40 text-[#E5C378] font-mono uppercase tracking-wider text-[8.5px] sm:text-[10px] whitespace-nowrap">
@@ -499,7 +499,7 @@ export function CelestialRoyaleTemplate({
               <span className="font-mono text-neutral-400 text-[9px] sm:text-[11px]">{data.groom.role.toUpperCase()}</span>
             </div>
 
-            <div className="relative aspect-[4/5] w-24 sm:w-36 md:w-auto rounded-xl sm:rounded-2xl overflow-hidden border border-[#E5C378]/30 group-hover:border-[#E5C378]/60 transition-colors mx-auto">
+            <div className="relative aspect-[4/5] w-36 sm:w-36 md:w-auto rounded-xl sm:rounded-2xl overflow-hidden border border-[#E5C378]/30 group-hover:border-[#E5C378]/60 transition-colors mx-auto">
               <img
                 src={data.groom.avatar}
                 alt={data.groom.fullName}
@@ -511,10 +511,10 @@ export function CelestialRoyaleTemplate({
 
             <div className="space-y-1.5 sm:space-y-3 flex-1 flex flex-col justify-between text-center sm:text-left">
               <div>
-                <h3 className="font-serif-title text-sm xs:text-base sm:text-2xl md:text-3xl font-medium text-white leading-tight">
+                <h3 className="font-serif-title text-xl sm:text-2xl md:text-3xl font-medium text-white leading-tight">
                   {data.groom.fullName}
                 </h3>
-                <p className="text-[10px] sm:text-xs text-neutral-300 leading-relaxed mt-1 line-clamp-3 sm:line-clamp-none">
+                <p className="text-xs text-neutral-300 leading-relaxed mt-1.5">
                   {data.groom.bio || 'Ngọn đèn ấm áp và vững chãi, luôn che chở và cùng người bạn đời kiến tạo tương lai rực rỡ.'}
                 </p>
               </div>
@@ -572,7 +572,7 @@ export function CelestialRoyaleTemplate({
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             whileHover={{ y: -8 }}
-            className="bg-[#0A1128]/90 border border-[#64B5F6]/30 rounded-2xl sm:rounded-3xl p-3 sm:p-6 md:p-8 space-y-3 sm:space-y-6 shadow-[0_0_35px_rgba(100,181,246,0.12)] hover:border-[#64B5F6] hover:shadow-[0_0_40px_rgba(100,181,246,0.25)] transition-all group backdrop-blur-sm flex flex-col justify-between"
+            className="bg-[#0A1128]/90 border border-[#64B5F6]/30 rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 space-y-4 sm:space-y-6 shadow-[0_0_35px_rgba(100,181,246,0.12)] hover:border-[#64B5F6] hover:shadow-[0_0_40px_rgba(100,181,246,0.25)] transition-all group backdrop-blur-sm flex flex-col justify-between"
           >
             <div className="flex flex-col sm:flex-row justify-between items-center text-xs gap-1">
               <div className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-[#64B5F6]/15 border border-[#64B5F6]/40 text-[#90CAF9] font-mono uppercase tracking-wider text-[8.5px] sm:text-[10px] whitespace-nowrap">
@@ -582,7 +582,7 @@ export function CelestialRoyaleTemplate({
               <span className="font-mono text-neutral-400 text-[9px] sm:text-[11px]">{data.bride.role.toUpperCase()}</span>
             </div>
 
-            <div className="relative aspect-[4/5] w-24 sm:w-36 md:w-auto rounded-xl sm:rounded-2xl overflow-hidden border border-[#64B5F6]/30 group-hover:border-[#64B5F6]/60 transition-colors mx-auto">
+            <div className="relative aspect-[4/5] w-36 sm:w-36 md:w-auto rounded-xl sm:rounded-2xl overflow-hidden border border-[#64B5F6]/30 group-hover:border-[#64B5F6]/60 transition-colors mx-auto">
               <img
                 src={data.bride.avatar}
                 alt={data.bride.fullName}
@@ -594,10 +594,10 @@ export function CelestialRoyaleTemplate({
 
             <div className="space-y-1.5 sm:space-y-3 flex-1 flex flex-col justify-between text-center sm:text-left">
               <div>
-                <h3 className="font-serif-title text-sm xs:text-base sm:text-2xl md:text-3xl font-medium text-white leading-tight">
+                <h3 className="font-serif-title text-xl sm:text-2xl md:text-3xl font-medium text-white leading-tight">
                   {data.bride.fullName}
                 </h3>
-                <p className="text-[10px] sm:text-xs text-neutral-300 leading-relaxed mt-1 line-clamp-3 sm:line-clamp-none">
+                <p className="text-xs text-neutral-300 leading-relaxed mt-1.5">
                   {data.bride.bio || 'Vì sao dịu dàng và lung linh, người mang lại sự bình yên và vẻ đẹp thanh thuần cho từng ngày trôi qua.'}
                 </p>
               </div>

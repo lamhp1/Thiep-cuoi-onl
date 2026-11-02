@@ -212,7 +212,7 @@ export function HauteCoutureTemplate({
   });
 
   return (
-    <div className="min-h-screen bg-[#0E0D0C] text-[#F3EFEA] font-body selection:bg-[#C5A880]/30 selection:text-[#E8D7BE] relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#0E0D0C] text-[#F3EFEA] font-body selection:bg-[#C5A880]/30 selection:text-[#E8D7BE] relative overflow-x-clip">
       {/* 1. Haute Couture Editorial Curtain Cover */}
       <AnimatePresence>
         {!isCurtainOpened && (
@@ -298,10 +298,10 @@ export function HauteCoutureTemplate({
           </span>
         </div>
 
-        <nav className="flex items-center gap-4 sm:gap-6 text-[11px] uppercase tracking-widest text-neutral-400">
-          <a href="#editorial-couple" className="hover:text-[#C5A880] transition-colors">Cặp Đôi</a>
-          <a href="#editorial-itinerary" className="hover:text-[#C5A880] transition-colors">Lịch Trình</a>
-          <a href="#editorial-lookbook" className="hover:text-[#C5A880] transition-colors">Lookbook</a>
+        <nav className="flex items-center gap-3 sm:gap-6 text-[10px] sm:text-[11px] uppercase tracking-wider sm:tracking-widest text-neutral-400 shrink-0">
+          <a href="#editorial-couple" className="hidden md:inline hover:text-[#C5A880] transition-colors">Cặp Đôi</a>
+          <a href="#editorial-itinerary" className="hidden sm:inline hover:text-[#C5A880] transition-colors">Lịch Trình</a>
+          <a href="#editorial-lookbook" className="hidden md:inline hover:text-[#C5A880] transition-colors">Lookbook</a>
           <a href="#editorial-rsvp" className="text-[#C5A880] font-bold hover:underline">RSVP</a>
           {isOwnerMode && onNavigateToAdmin && (
             <button

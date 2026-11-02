@@ -643,7 +643,7 @@ export function LuxuryEditorialTemplate({
         ];
 
   return (
-    <div className="relative min-h-screen bg-[#FBF9F5] text-[#121212] font-body selection:bg-[#121212] selection:text-[#FBF9F5] overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#FBF9F5] text-[#121212] font-body selection:bg-[#121212] selection:text-[#FBF9F5] overflow-x-clip">
       {/* =========================================================================
           CUSTOM DESKTOP CURSOR (Disabled on mobile/touch for performance)
           ========================================================================= */}

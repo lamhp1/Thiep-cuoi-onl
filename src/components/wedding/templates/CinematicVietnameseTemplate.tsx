@@ -75,7 +75,7 @@ export function CinematicVietnameseTemplate({
   return (
     <motion.div
       style={{ backgroundColor: dynamicBg }}
-      className="template-cinematic-vietnamese relative min-h-screen text-[#FAF6EE] transition-colors duration-700 font-body overflow-x-hidden selection:bg-[#BA1E28] selection:text-[#FFD700]"
+      className="template-cinematic-vietnamese relative min-h-screen text-[#FAF6EE] transition-colors duration-700 font-body overflow-x-clip selection:bg-[#BA1E28] selection:text-[#FFD700]"
     >
       {/* 1. Màn Mở Đầu Điện Ảnh "Khai Ấn Hoàng Triều" (Grand Prologue with Imperial Stamp) */}
       {!hasOpened && (

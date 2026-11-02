@@ -83,10 +83,10 @@ export function LotusGiftSection({
           </p>
 
           {/* Tab Switcher: Chú Rể / Cô Dâu (Solid luxury buttons) */}
-          <div className="flex items-center justify-center gap-3 pt-4">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 pt-4">
             <button
               onClick={() => setSelectedSide('groom')}
-              className={`px-5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all cursor-pointer ${
+              className={`px-3.5 sm:px-5 py-2 rounded-full text-[11px] sm:text-xs font-semibold tracking-wider uppercase transition-all cursor-pointer ${
                 selectedSide === 'groom'
                   ? 'bg-[#18181A] text-[#D8BE87] shadow-md scale-105'
                   : 'bg-[#FFFFFF] text-[#5A554E] hover:bg-[#FAF7F2] border border-[#D8BE87]/50 shadow-xs'
@@ -97,7 +97,7 @@ export function LotusGiftSection({
 
             <button
               onClick={() => setSelectedSide('bride')}
-              className={`px-5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all cursor-pointer ${
+              className={`px-3.5 sm:px-5 py-2 rounded-full text-[11px] sm:text-xs font-semibold tracking-wider uppercase transition-all cursor-pointer ${
                 selectedSide === 'bride'
                   ? 'bg-[#63121D] text-[#F8F4EC] shadow-md scale-105'
                   : 'bg-[#FFFFFF] text-[#5A554E] hover:bg-[#FAF7F2] border border-[#D8BE87]/50 shadow-xs'

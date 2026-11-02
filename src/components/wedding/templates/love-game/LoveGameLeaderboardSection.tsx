@@ -160,11 +160,11 @@ export function LoveGameLeaderboardSection({
           </p>
 
           {/* Filter Tabs */}
-          <div className="inline-flex items-center gap-1.5 p-1 rounded-2xl bg-white/[0.06] border border-white/10 backdrop-blur-xl mt-4">
+          <div className="inline-flex flex-wrap justify-center items-center gap-1 sm:gap-1.5 p-1 rounded-2xl bg-white/[0.06] border border-white/10 backdrop-blur-xl mt-4 max-w-full">
             <button
               type="button"
               onClick={() => setActiveTab('all')}
-              className={`cursor-pointer px-4 py-1.5 rounded-xl text-xs font-bold transition-all ${
+              className={`cursor-pointer px-3 sm:px-4 py-1.5 rounded-xl text-[11px] sm:text-xs font-bold transition-all ${
                 activeTab === 'all'
                   ? 'bg-gradient-to-r from-pink-500 to-rose-600 text-white shadow-md'
                   : 'text-neutral-400 hover:text-white'
@@ -175,7 +175,7 @@ export function LoveGameLeaderboardSection({
             <button
               type="button"
               onClick={() => setActiveTab('groom')}
-              className={`cursor-pointer px-4 py-1.5 rounded-xl text-xs font-bold transition-all ${
+              className={`cursor-pointer px-3 sm:px-4 py-1.5 rounded-xl text-[11px] sm:text-xs font-bold transition-all ${
                 activeTab === 'groom'
                   ? 'bg-blue-600 text-white shadow-md'
                   : 'text-neutral-400 hover:text-white'
@@ -186,7 +186,7 @@ export function LoveGameLeaderboardSection({
             <button
               type="button"
               onClick={() => setActiveTab('bride')}
-              className={`cursor-pointer px-4 py-1.5 rounded-xl text-xs font-bold transition-all ${
+              className={`cursor-pointer px-3 sm:px-4 py-1.5 rounded-xl text-[11px] sm:text-xs font-bold transition-all ${
                 activeTab === 'bride'
                   ? 'bg-pink-600 text-white shadow-md'
                   : 'text-neutral-400 hover:text-white'
